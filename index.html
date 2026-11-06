@@ -50,6 +50,55 @@ a.button{text-decoration:none}
 @media(max-width:550px){.welcome-card{padding:27px 20px}.welcome-actions .button{width:100%}}
 @media(prefers-reduced-motion:reduce){.welcome-overlay,.welcome-card,.welcome-graphic{animation:none}}
 
+
+/* Nexus Notes — interactive ChatGPT Tutor */
+.tutor-shell{display:grid;grid-template-columns:minmax(200px,245px) minmax(0,1fr);min-height:640px;
+  border:1px solid var(--line);border-radius:20px;overflow:hidden;background:var(--surface);box-shadow:0 18px 65px #0002}
+.tutor-sidebar{padding:17px;background:color-mix(in srgb,var(--surface),var(--bg) 35%);border-right:1px solid var(--line);display:flex;flex-direction:column;gap:12px;min-width:0}
+.tutor-new{width:100%;justify-content:center;text-align:center}
+.tutor-side-heading{font-size:10px;letter-spacing:1.7px;color:var(--muted);font-weight:800;padding:8px 3px 0}
+.tutor-chat-list{display:flex;flex-direction:column;gap:4px;overflow-y:auto;max-height:300px;min-height:65px}
+.tutor-chat-item{display:flex;align-items:center;gap:4px;border-radius:9px;padding:3px;background:transparent}
+.tutor-chat-item.active{background:rgba(128,116,255,.16)}
+.tutor-chat-item button{border:0;background:transparent;color:var(--text);cursor:pointer}
+.tutor-chat-item .tutor-open{flex:1;text-align:left;padding:9px 7px;font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tutor-chat-item .tutor-delete{color:var(--muted);padding:9px;border-radius:6px}
+.tutor-chat-item .tutor-delete:hover{color:#ff9292;background:#f4454524}
+.tutor-connection{margin-top:auto;border-top:1px solid var(--line);padding-top:9px}
+.tutor-connection .field-label{font-size:11px;margin-top:9px;display:block;color:var(--soft)}
+.tutor-connection input{font-size:12px;width:100%;padding:10px 9px;margin:5px 0;border-radius:8px}
+.tutor-connect{margin-top:7px;width:100%;justify-content:center}
+.tutor-connection-status{font-size:11px;line-height:1.5;color:var(--soft);margin:10px 1px 0}
+.tutor-external{color:var(--accent);display:block;font-size:11px;margin-top:11px;text-decoration:none}
+.tutor-main{display:flex;flex-direction:column;min-width:0;min-height:0}
+.tutor-toolbar{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:16px 21px;border-bottom:1px solid var(--line)}
+.tutor-brand{display:flex;gap:11px;align-items:center}
+.tutor-brand-icon{width:40px;height:40px;display:grid;place-items:center;border-radius:13px;background:linear-gradient(135deg,#8c72ff,#4d88fa);color:white;font-size:21px}
+.tutor-brand strong{font-size:14px;display:block}.tutor-brand small{display:block;color:var(--muted);font-size:11px;margin-top:4px}
+.tutor-voice{font-size:12px;white-space:nowrap}
+.tutor-controls{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;padding:13px 18px;border-bottom:1px solid var(--line)}
+.tutor-controls label{font-size:10px;color:var(--muted);min-width:0;font-weight:700}
+.tutor-controls select{display:block;width:100%;margin:4px 0 0;font-size:12px;padding:9px 7px;border-radius:9px;color:var(--text)}
+.tutor-messages{flex:1;min-height:250px;max-height:500px;overflow-y:auto;padding:24px 20px;display:flex;flex-direction:column;gap:16px;scroll-behavior:smooth}
+.tutor-message{display:flex;gap:10px;align-items:flex-start;max-width:88%}
+.tutor-message.user{align-self:flex-end;flex-direction:row-reverse}
+.tutor-message.assistant{align-self:flex-start}
+.tutor-avatar{height:31px;width:31px;border-radius:10px;background:linear-gradient(125deg,#7f66db,#3e82e8);display:grid;place-items:center;flex-shrink:0;font-size:15px;color:white}
+.tutor-message.user .tutor-avatar{background:#33435c}
+.tutor-bubble{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.58;padding:13px 16px;font-size:13px;border:1px solid var(--line);border-radius:15px;background:var(--surface-raised,var(--card,var(--surface)))}
+.tutor-message.user .tutor-bubble{background:rgba(119,103,245,.19);border-color:rgba(130,117,255,.3)}
+.tutor-message.error .tutor-bubble{border-color:#f48b8b88;color:#ee9999}
+.tutor-suggestions{display:flex;flex-wrap:wrap;gap:7px;padding:0 18px 12px}
+.tutor-suggestions button{border:1px solid var(--line);background:transparent;color:var(--soft);padding:8px 12px;border-radius:20px;cursor:pointer;font-size:11px}
+.tutor-suggestions button:hover{background:rgba(132,116,249,.14);color:var(--text)}
+.tutor-composer{margin:0 18px 5px;border:1px solid var(--line);border-radius:15px;padding:9px 12px;background:var(--bg)}
+.tutor-composer textarea{width:100%;min-height:64px;max-height:180px;resize:vertical;margin:0;display:block;background:transparent;border:0;outline:0;color:var(--text);font:inherit;font-size:13px;line-height:1.6}
+.tutor-composer-actions{display:flex;justify-content:flex-end;align-items:center;gap:8px}.tutor-help{margin-right:auto;color:var(--muted);font-size:10px}
+.tutor-privacy{margin:9px 19px 14px;color:var(--muted);font-size:10px;line-height:1.55}
+@media(max-width:900px){.tutor-shell{grid-template-columns:1fr}.tutor-sidebar{border-right:0;border-bottom:1px solid var(--line)}.tutor-connection{margin-top:0}.tutor-chat-list{max-height:105px}}
+@media(max-width:540px){.tutor-controls{grid-template-columns:1fr}.tutor-toolbar{padding:12px}.tutor-messages{padding:15px 10px;max-height:350px}.tutor-message{max-width:96%}.tutor-help{display:none}}
+@media(prefers-reduced-motion:reduce){.tutor-messages{scroll-behavior:auto}}
+
 </style>
 </head>
 <body>
@@ -135,25 +184,61 @@ a.button{text-decoration:none}
 
         <section id="ai" class="view hidden">
   <div class="page-heading">
-    <div><div class="eyebrow">YOUR THINKING PARTNER</div><h1>ChatGPT Assistant <span class="heading-spark">✦</span></h1>
-      <p>Bring a notebook into ChatGPT to get explanations, summaries, study guides, or quizzes.</p></div>
-  </div>
-  <div class="panel form-panel ai-preview">
-    <div class="ai-icon-large">✦</div>
-    <h2>Think it through with ChatGPT</h2>
-    <p>Choose a notebook, write your question, then copy the notes and question into ChatGPT.</p>
-    <label class="field-label" for="chatNotebookSelect">Notebook to use</label>
-    <select id="chatNotebookSelect"><option value="">No notebook (just my question)</option></select>
-    <label class="field-label" for="chatQuestion">What would you like to ask?</label>
-    <textarea id="chatQuestion" rows="5" placeholder="Example: Make me a 10-question quiz based on these notes."></textarea>
-    <div class="editor-toolbar">
-      <button class="button button-primary" onclick="copyForChatGPT()">Copy notes + question</button>
-      <a class="button button-secondary" href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer">Open ChatGPT ↗</a>
+    <div><div class="eyebrow">YOUR PERSONAL LEARNING COMPANION</div>
+      <h1>ChatGPT Tutor <span class="heading-spark">✦</span></h1>
+      <p>Ask questions, get step-by-step explanations, practice for tests, and pick up right where your conversation left off.</p>
     </div>
-    <p class="muted" id="aiOutput" role="status" aria-live="polite">Nothing is sent automatically. You choose what to paste into ChatGPT.</p>
-    <div class="ai-explainer">
-      <strong>Want ChatGPT to answer right inside Nexus Notes?</strong>
-      <p>That needs an OpenAI API connection through a secure server. A ChatGPT subscription does not automatically connect to this website, and API use may cost money. Never put an API key in a public HTML or JavaScript file.</p>
+  </div>
+  <div class="tutor-shell">
+    <aside class="tutor-sidebar">
+      <button class="button button-primary tutor-new" type="button" onclick="newTutorChat()">＋ New conversation</button>
+      <div class="tutor-side-heading">YOUR CONVERSATIONS</div>
+      <div id="tutorChatList" class="tutor-chat-list" aria-label="Previous tutor conversations"></div>
+      <div class="tutor-connection">
+        <div class="tutor-side-heading">AI CONNECTION</div>
+        <label class="field-label" for="tutorEndpoint">Your secure server address</label>
+        <input id="tutorEndpoint" type="url" placeholder="https://my-tutor.example.workers.dev" autocomplete="url">
+        <label class="field-label" for="tutorAccessCode">Your private access code</label>
+        <input id="tutorAccessCode" type="password" placeholder="Private access code" autocomplete="off">
+        <button class="button button-secondary tutor-connect" onclick="saveTutorConnection()" type="button">Save connection</button>
+        <p class="tutor-connection-status" id="tutorConnectionStatus" role="status">Set up your server to enable live AI replies.</p>
+        <a href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer" class="tutor-external">Or open ChatGPT ↗</a>
+      </div>
+    </aside>
+    <div class="tutor-main">
+      <div class="tutor-toolbar">
+        <div class="tutor-brand"><span class="tutor-brand-icon">✦</span><div><strong>Study with ChatGPT</strong><small>Interactive tutor · notebook-aware</small></div></div>
+        <button class="button button-secondary tutor-voice" id="tutorVoiceButton" onclick="toggleTutorVoice()" type="button" aria-pressed="false">🔈 Voice off</button>
+      </div>
+      <div class="tutor-controls">
+        <label>Subject <select id="tutorSubject" onchange="saveTutorPreferences()">
+          <option value="general">Any subject</option><option value="math">Mathematics</option>
+          <option value="science">Science</option><option value="english">English & writing</option>
+          <option value="history">History</option><option value="coding">Coding</option>
+          <option value="other">Other</option>
+        </select></label>
+        <label>Style <select id="tutorMode" onchange="saveTutorPreferences()">
+          <option value="guide">Teach me step by step</option><option value="quiz">Quiz me</option>
+          <option value="hints">Give me homework hints</option><option value="review">Help me review</option>
+        </select></label>
+        <label>Use my notes <select id="tutorNotebook" onchange="saveTutorPreferences()"><option value="">No notebook selected</option></select></label>
+      </div>
+      <div class="tutor-messages" id="tutorMessages" role="log" aria-live="polite" aria-label="Tutor conversation"></div>
+      <div class="tutor-suggestions" id="tutorSuggestions">
+        <button type="button" onclick="tutorQuick('Explain this in simple steps')">💡 Explain this</button>
+        <button type="button" onclick="tutorQuick('Quiz me on this topic, one question at a time')">📝 Quiz me</button>
+        <button type="button" onclick="tutorQuick('Give me a hint rather than the answer')">🧩 Give a hint</button>
+        <button type="button" onclick="tutorQuick('Help me make a study plan')">📅 Study plan</button>
+      </div>
+      <form class="tutor-composer" id="tutorForm" onsubmit="event.preventDefault();sendTutorMessage()">
+        <textarea id="tutorPrompt" rows="2" maxlength="3000" placeholder="Ask your tutor anything…" aria-label="Message your AI tutor"></textarea>
+        <div class="tutor-composer-actions">
+          <span class="tutor-help">Enter to send · Shift + Enter for a new line</span>
+          <button class="button button-secondary" type="button" id="tutorMicButton" onclick="startTutorDictation()" title="Speak a question">🎤 Speak</button>
+          <button class="button button-primary" id="tutorSendButton" type="submit">Send ↑</button>
+        </div>
+      </form>
+      <p class="tutor-privacy">Only your selected notebook's written pages are shared with the tutor when you send a message. Chats are saved in this browser, not synced across devices. Voice features depend on your browser.</p>
     </div>
   </div>
 </section>
@@ -230,7 +315,7 @@ tasks.forEach(normalizeTask);
 
 </script><script>
 /* navigation.js */
-const pageNames={dashboard:'Overview',notebooks:'Notebooks',tasks:'My tasks',goals:'Goals',calendar:'Calendar',ai:'AI assistant',tools:'Tools hub',settings:'Settings'};
+const pageNames={dashboard:'Overview',notebooks:'Notebooks',tasks:'My tasks',goals:'Goals',calendar:'Calendar',ai:'ChatGPT Tutor',tools:'Tools hub',settings:'Settings'};
 function showPage(id){
   if(!pageNames[id])return;
   if(currentNotebook!==null && activePage==='notebooks')saveNotes(true);
@@ -528,50 +613,178 @@ function openSearchNotebook(index,page){closeCommand();openNotebook(index,page)}
 function openSearchTask(index,page){closeCommand();openTask(index,page)}
 
 </script><script>
-/* ai.js */
-function refreshChatGPTNotebooks(){
-  const select=el('chatNotebookSelect');
-  if(!select)return;
-  const selected=select.value;
-  select.replaceChildren(new Option('No notebook (just my question)',''));
-  notebooks.forEach((book,index)=>select.add(new Option(book.name,index.toString())));
-  if([...select.options].some(option=>option.value===selected))select.value=selected;
-}
 
-async function copyForChatGPT(){
-  const selected=el('chatNotebookSelect').value;
-  const question=el('chatQuestion').value.trim();
-  if(!question && selected==='')return notice('Choose a notebook or enter your question first.');
-  let content = '';
-  if(selected!==''){
-    const book=notebooks[Number(selected)];
-    if(!book)return notice('The selected notebook was not found.');
-    const populated=(book.pages||[]).map((text,i)=>({text,i}))
-      .filter(x=>typeof x.text==='string'&&x.text.trim());
-    content='Notebook: '+book.name+'\\n\\n'+
-      (populated.length?populated.map(({text,i})=>'Page '+(i+1)+':\\n'+text).join('\\n\\n'):'(Notebook has no written pages)');
-  }
-  const output=[
-    question || 'Please help me understand these notes.',
-    content && '\\n--- MY NOTEBOOK NOTES ---\\n'+content
-  ].filter(Boolean).join('\\n');
+/* ai.js — Tutor chat interface. Real responses require the separate secured Worker. */
+const TUTOR_KEY='nn_tutor_chats_v1';
+let tutorChats=loadLocal(TUTOR_KEY,[]);
+if(!Array.isArray(tutorChats))tutorChats=[];
+let tutorActiveId=localStorage.getItem('nn_tutor_active')||'';
+let tutorBusy=false;
+let tutorVoiceOn=false;
+let tutorDictation=null;
+let tutorWorkerURL=localStorage.getItem('nn_tutor_worker_url')||'';
+let tutorAccessCode=sessionStorage.getItem('nn_tutor_access_code')||'';
+function tutorId(){return (typeof crypto!=='undefined'&&crypto.randomUUID)?crypto.randomUUID():Date.now()+'-'+Math.random().toString(36).slice(2)}
+function tutorCurrent(){return tutorChats.find(c=>c.id===tutorActiveId)||null}
+function tutorStore(){
   try{
-    if(navigator.clipboard && window.isSecureContext){
-      await navigator.clipboard.writeText(output);
-    }else{
-      const helper=document.createElement('textarea');
-      helper.value=output;helper.style.position='fixed';helper.style.left='-9999px';
-      document.body.append(helper);helper.select();
-      if(!document.execCommand('copy'))throw Error('Copy was blocked');
-      helper.remove();
-    }
-    el('aiOutput').textContent='Copied! Open ChatGPT, paste with Ctrl + V (or Paste on iPhone), and send.';
-    notice('Copied for ChatGPT');
-  }catch(error){
-    el('aiOutput').textContent='Automatic copying was blocked. Open this site through Live Server or GitHub Pages, then try again.';
-    notice('Could not copy text');
-  }
+    localStorage.setItem(TUTOR_KEY,JSON.stringify(tutorChats.slice(-35)));
+    localStorage.setItem('nn_tutor_active',tutorActiveId);
+  }catch(e){notice('Chat history storage is full. Export your notes regularly.');}
 }
+function newTutorChat(){
+  if(tutorBusy)return notice('Finish the current reply before starting a chat.');
+  const chat={id:tutorId(),title:'New conversation',mode:'guide',subject:'general',notebook:'',
+    created:Date.now(), messages:[]};
+  tutorChats.push(chat);tutorActiveId=chat.id;tutorStore();tutorRender();el('tutorPrompt')?.focus();
+}
+function selectTutorChat(id){
+  if(tutorBusy)return;
+  if(!tutorChats.some(c=>c.id===id))return;
+  tutorActiveId=id;tutorStore();tutorRender();
+}
+function deleteTutorChat(id){
+  if(tutorBusy)return;
+  if(!confirm('Delete this tutoring conversation?'))return;
+  tutorChats=tutorChats.filter(c=>c.id!==id);
+  if(tutorActiveId===id)tutorActiveId=tutorChats[0]?.id||'';
+  if(!tutorActiveId)newTutorChat();else{tutorStore();tutorRender()}
+}
+function refreshChatGPTNotebooks(){
+  const sel=el('tutorNotebook');if(!sel)return;
+  const chosen=tutorCurrent()?.notebook||sel.value;
+  sel.replaceChildren(new Option('No notebook selected',''));
+  notebooks.forEach((b,i)=>sel.add(new Option(b.name,i.toString())));
+  if([...sel.options].some(x=>x.value===chosen))sel.value=chosen;
+}
+function tutorRender(){
+  const chat=tutorCurrent();
+  refreshChatGPTNotebooks();
+  if(chat){
+    el('tutorSubject').value=chat.subject||'general';
+    el('tutorMode').value=chat.mode||'guide';
+    el('tutorNotebook').value=chat.notebook||'';
+  }
+  const list=el('tutorChatList');list.replaceChildren();
+  tutorChats.slice().reverse().forEach(c=>{
+    const row=document.createElement('div');row.className='tutor-chat-item'+(c.id===tutorActiveId?' active':'');
+    const open=document.createElement('button');open.className='tutor-open';open.textContent='💬 '+(c.title||'New conversation');
+    open.title=c.title||'New conversation';open.onclick=()=>selectTutorChat(c.id);
+    const remove=document.createElement('button');remove.className='tutor-delete';remove.textContent='×';
+    remove.title='Delete chat';remove.setAttribute('aria-label','Delete '+(c.title||'chat'));
+    remove.onclick=()=>deleteTutorChat(c.id);
+    row.append(open,remove);list.append(row);
+  });
+  const msgs=el('tutorMessages');msgs.replaceChildren();
+  if(!chat||!chat.messages.length){
+    tutorShowMessage('assistant','Hi! 👋 I’m your Nexus Notes tutor. What are you working on? We can work through it together, one step at a time.');
+  }else{chat.messages.forEach(m=>tutorShowMessage(m.role,m.text));}
+  msgs.scrollTop=msgs.scrollHeight;
+  el('tutorEndpoint').value=tutorWorkerURL;
+  el('tutorAccessCode').value=tutorAccessCode;
+  tutorConnectionStatus();
+}
+function tutorShowMessage(role,text,extra=''){
+  const wrap=document.createElement('div');wrap.className='tutor-message '+(role==='user'?'user':'assistant')+(extra?' '+extra:'');
+  const avatar=document.createElement('div');avatar.className='tutor-avatar';avatar.textContent=role==='user'?'You':'✦';
+  const bubble=document.createElement('div');bubble.className='tutor-bubble';bubble.textContent=text;
+  wrap.append(avatar,bubble);el('tutorMessages').append(wrap);
+  el('tutorMessages').scrollTop=el('tutorMessages').scrollHeight;return wrap;
+}
+function saveTutorPreferences(){
+  const chat=tutorCurrent();if(!chat)return;
+  chat.subject=el('tutorSubject').value;chat.mode=el('tutorMode').value;
+  chat.notebook=el('tutorNotebook').value;tutorStore();
+}
+function tutorConnectionStatus(){
+  const ok=Boolean(tutorWorkerURL&&tutorAccessCode);
+  el('tutorConnectionStatus').textContent=ok?'Server details saved for this session. Send a question to test it.':
+    'Live replies require your Cloudflare Worker URL and private access code. See the setup guide in the download.';
+}
+function saveTutorConnection(){
+  const url=el('tutorEndpoint').value.trim().replace(/\/$/,'');
+  const code=el('tutorAccessCode').value.trim();
+  if(url){
+    let parsed;try{parsed=new URL(url)}catch(e){return notice('Enter a complete server URL beginning with https://');}
+    if(parsed.protocol!=='https:' && parsed.hostname!=='localhost')return notice('Server URL must use HTTPS');
+    if(!(parsed.hostname.endsWith('.workers.dev')||parsed.hostname==='localhost'))return notice('Use your own Cloudflare workers.dev URL');
+    tutorWorkerURL=parsed.origin+parsed.pathname.replace(/\/$/,'');
+  }else{tutorWorkerURL=''}
+  tutorAccessCode=code;
+  localStorage.setItem('nn_tutor_worker_url',tutorWorkerURL);
+  if(code)sessionStorage.setItem('nn_tutor_access_code',code);
+  else sessionStorage.removeItem('nn_tutor_access_code');
+  tutorConnectionStatus();notice('Tutor settings saved. You can test by sending a message.');
+}
+function tutorQuick(text){el('tutorPrompt').value=text;el('tutorPrompt').focus()}
+function tutorNotebookContext(){
+  const value=tutorCurrent()?.notebook??'';if(value==='')return '';
+  const book=notebooks[Number(value)];if(!book)return '';
+  let context='Notebook: '+book.name+'\n';
+  for(let i=0;i<(book.pages||[]).length;i++){
+    const content=book.pages[i];if(typeof content!=='string'||!content.trim())continue;
+    const addition='\nPage '+(i+1)+':\n'+content+'\n';
+    if((context+addition).length>9000){context+='\n[Other pages omitted to keep the request small.]';break;}
+    context+=addition;
+  }
+  return context.slice(0,9500);
+}
+async function sendTutorMessage(){
+  if(tutorBusy)return;
+  const input=el('tutorPrompt');const question=input.value.trim();if(!question)return;
+  const chat=tutorCurrent();if(!chat)return newTutorChat();
+  saveTutorPreferences();
+  chat.messages.push({role:'user',text:question});
+  if(chat.title==='New conversation')chat.title=question.slice(0,36)+(question.length>36?'…':'');
+  input.value='';tutorStore();tutorRender();
+  if(!tutorWorkerURL||!tutorAccessCode){
+    const warning='To get a real ChatGPT reply inside Nexus Notes, first set up the secure tutor server and add your private access code on the left. You can also use “Open ChatGPT” for now.';
+    tutorShowMessage('assistant',warning,'error');return;
+  }
+  tutorBusy=true;el('tutorSendButton').disabled=true;el('tutorSendButton').textContent='Thinking…';
+  const pending=tutorShowMessage('assistant','Thinking through this with you…');
+  try{
+    const history=chat.messages.filter(m=>m.role==='user'||m.role==='assistant').slice(-16).map(m=>({role:m.role,content:m.text.slice(0,3000)}));
+    const response=await fetch(tutorWorkerURL,{method:'POST',headers:{'Content-Type':'application/json','X-Tutor-Token':tutorAccessCode},
+      body:JSON.stringify({messages:history,subject:chat.subject,mode:chat.mode,notebook:tutorNotebookContext()}),signal:AbortSignal.timeout(45000)});
+    const body=await response.json().catch(()=>({}));
+    if(!response.ok)throw Error(body.error||('Tutor server returned error '+response.status));
+    if(!body.reply||typeof body.reply!=='string')throw Error('The server did not return a tutor message');
+    pending.remove();
+    chat.messages.push({role:'assistant',text:body.reply});
+    tutorStore();tutorShowMessage('assistant',body.reply);
+    if(tutorVoiceOn)tutorSpeak(body.reply);
+  }catch(e){pending.remove();tutorShowMessage('assistant','I could not connect to the tutor: '+e.message,'error');}
+  finally{tutorBusy=false;el('tutorSendButton').disabled=false;el('tutorSendButton').textContent='Send ↑';}
+}
+function toggleTutorVoice(){
+  tutorVoiceOn=!tutorVoiceOn;
+  el('tutorVoiceButton').textContent=tutorVoiceOn?'🔊 Voice on':'🔈 Voice off';
+  el('tutorVoiceButton').setAttribute('aria-pressed',String(tutorVoiceOn));
+  if(!tutorVoiceOn&&'speechSynthesis'in window)speechSynthesis.cancel();
+}
+function tutorSpeak(text){
+  if(!('speechSynthesis'in window))return notice('Speech output is not available in this browser.');
+  speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);
+  u.lang='en-US';u.rate=.95;u.pitch=1;
+  const voices=speechSynthesis.getVoices();
+  const v=voices.find(x=>/natural|aria|samantha|google us english/i.test(x.name)&&x.lang.startsWith('en'))||voices.find(x=>x.lang.startsWith('en'));
+  if(v)u.voice=v;speechSynthesis.speak(u);
+}
+function startTutorDictation(){
+  const SpeechRecognition=window.SpeechRecognition||window.webkitSpeechRecognition;
+  if(!SpeechRecognition)return notice('Microphone dictation is not available here. Try Chrome, or type your question.');
+  if(tutorDictation){tutorDictation.stop();tutorDictation=null;return;}
+  const rec=new SpeechRecognition();rec.lang='en-US';rec.continuous=false;rec.interimResults=false;
+  rec.onresult=e=>{const transcript=e.results[0]?.[0]?.transcript||'';const p=el('tutorPrompt');p.value+=(p.value?' ':'')+transcript;p.focus();};
+  rec.onerror=()=>notice('Microphone could not start. Check browser permission.');
+  rec.onend=()=>{tutorDictation=null;el('tutorMicButton').textContent='🎤 Speak';};
+  tutorDictation=rec;
+  try{rec.start();el('tutorMicButton').textContent='⏹ Stop';}catch(e){tutorDictation=null;notice('Could not start microphone');}
+}
+if(!tutorChats.length)newTutorChat();
+else{if(!tutorCurrent())tutorActiveId=tutorChats[0].id;tutorRender();}
+el('tutorPrompt').addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendTutorMessage();}});
 
 </script><script>
 /* app.js */
