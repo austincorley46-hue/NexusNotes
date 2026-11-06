@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b0f18">
+  <title>Nexus Notes — Your workspace</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <svg class="svg-sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="ic-home" viewBox="0 0 24 24"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></symbol>
+    <symbol id="ic-book" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></symbol>
+    <symbol id="ic-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></symbol>
+    <symbol id="ic-check" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="m8 12 3 3 5-6"/></symbol>
+    <symbol id="ic-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 2v6M17 2v6M3 10h18"/></symbol>
+    <symbol id="ic-spark" viewBox="0 0 24 24"><path d="m12 2 1.9 7.1L21 11l-7.1 1.9L12 20l-1.9-7.1L3 11l7.1-1.9L12 2zM19 18l.8 1.9L22 21l-2.2 1.1L19 24l-.8-1.9L16 21l2.2-1.1z"/></symbol>
+    <symbol id="ic-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></symbol>
+    <symbol id="ic-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></symbol>
+    <symbol id="ic-settings" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 0 0-.1-1.1l2-1.5-2-3.5-2.3 1a8 8 0 0 0-1.9-1.1L14.4 3h-4.8l-.3 2.8A8 8 0 0 0 7.4 7l-2.3-1-2 3.5 2 1.5A7 7 0 0 0 5 12c0 .4 0 .7.1 1.1l-2 1.5 2 3.5 2.3-1c.6.5 1.2.8 1.9 1.1l.3 2.8h4.8l.3-2.8c.7-.3 1.3-.6 1.9-1.1l2.3 1 2-3.5-2-1.5c.1-.4.1-.7.1-1.1z"/></symbol>
+    <symbol id="ic-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="ic-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+    <symbol id="ic-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="ic-more" viewBox="0 0 24 24"><circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/></symbol>
+    <symbol id="ic-chevron" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></symbol>
+    <symbol id="ic-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+    <symbol id="ic-mic" viewBox="0 0 24 24"><rect x="9" y="2" width="6" height="13" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v4M8 22h8"/></symbol>
+  </svg>
+  <div class="app-shell" id="appShell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand"><span class="brand-symbol">✦</span><div><div class="brand-title">Nexus<span>Notes</span></div><div class="brand-subtitle">PERSONAL WORKSPACE</div></div></div>
+      <button class="workspace-select" type="button" onclick="showPage('settings')"><span class="workspace-avatar">N</span><span class="workspace-details"><b>My workspace</b><small>Personal plan</small></span><span class="workspace-dots">⋯</span></button>
+      <div class="sidebar-divider"></div>
+      <div class="nav-label">WORKSPACE</div>
+      <nav aria-label="Main navigation">
+        <button class="nav-link active" data-page="dashboard" onclick="showPage('dashboard')"><svg><use href="#ic-home"/></svg><span>Overview</span></button>
+        <button class="nav-link" data-page="notebooks" onclick="showPage('notebooks')"><svg><use href="#ic-book"/></svg><span>Notebooks</span></button>
+        <button class="nav-link" data-page="tasks" onclick="showPage('tasks')"><svg><use href="#ic-check"/></svg><span>My tasks</span></button>
+        <button class="nav-link" data-page="goals" onclick="showPage('goals')"><svg><use href="#ic-target"/></svg><span>Goals</span></button>
+        <button class="nav-link" data-page="calendar" onclick="showPage('calendar')"><svg><use href="#ic-calendar"/></svg><span>Calendar</span></button>
+        <div class="nav-label nav-group-space">DISCOVER</div>
+        <button class="nav-link" data-page="ai" onclick="showPage('ai')"><svg><use href="#ic-spark"/></svg><span>ChatGPT Assistant</span><span class="soon-pill">ChatGPT</span></button>
+        <button class="nav-link" data-page="tools" onclick="showPage('tools')"><svg><use href="#ic-grid"/></svg><span>Tools hub</span></button>
+        <div class="nav-label nav-group-space">PREFERENCES</div>
+        <button class="nav-link" data-page="settings" onclick="showPage('settings')"><svg><use href="#ic-settings"/></svg><span>Settings & backup</span></button>
+      </nav>
+      <div class="sidebar-bottom"><div class="sidebar-tip"><div class="tip-icon">✧</div><b>A little progress adds up.</b><p>Keep your ideas, goals and plans together.</p></div><div class="sidebar-footer"><span class="online-dot"></span> Stored on this device <span>v3.0</span></div></div>
+    </aside>
+
+    <div class="workspace-main">
+      <header class="topbar">
+        <div class="topbar-left"><button class="icon-button mobile-only" type="button" onclick="toggleSidebar()" aria-label="Toggle menu"><svg><use href="#ic-menu"/></svg></button><div class="breadcrumb"><span>Nexus Notes</span><svg><use href="#ic-chevron"/></svg><strong id="currentBreadcrumb">Overview</strong></div></div>
+        <div class="topbar-right"><button class="search-launch" type="button" onclick="openCommand()"><svg><use href="#ic-search"/></svg><span>Search anything...</span><kbd>Ctrl K</kbd></button><span class="topbar-separator"></span><div class="today-label" id="topDate"></div><button class="profile-button" onclick="showPage('settings')" aria-label="Profile settings">N</button></div>
+      </header>
+      <main class="content">
+        <section id="dashboard" class="view active-view">
+          <div class="dashboard-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span> YOUR WORKSPACE, REIMAGINED</div><h1 id="greetingTitle">Good evening <span class="wave">✳</span></h1><p>Everything you need to stay focused, in one beautiful place.</p></div><div class="heading-actions"><button class="button button-secondary" onclick="showPage('calendar')"><svg><use href="#ic-calendar"/></svg> View calendar</button><button class="button button-primary" onclick="quickCreate('notebook')"><svg><use href="#ic-plus"/></svg> New notebook</button></div></div>
+          <div class="hero-banner panel entrance" style="--delay:0s"><div class="hero-glow"></div><div class="hero-copy"><div class="hero-kicker"><span class="pulse-dot"></span> A FRESH START, EVERY DAY</div><h2>Big things begin<br>with <em>small steps.</em></h2><p>Turn your ideas into action. Create, organize, and keep moving forward — one day at a time.</p><button class="hero-cta" onclick="showPage('goals')">Explore your goals <svg><use href="#ic-arrow"/></svg></button></div><div class="hero-art" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="orbit orbit-three"></div><div class="hero-gem"><span>✦</span></div><div class="float-chip chip-a">✧ Create</div><div class="float-chip chip-b">↗ Grow</div><div class="float-chip chip-c">✓ Achieve</div></div></div>
+          <div class="stats-grid">
+            <button class="stat panel entrance" style="--delay:.07s" onclick="showPage('notebooks')"><div class="stat-icon lavender"><svg><use href="#ic-book"/></svg></div><div class="stat-kicker">Your notebooks</div><div class="stat-line"><strong id="statNotebooks">0</strong><span>books created</span></div><div class="stat-foot">All your ideas in one place <span>↗</span></div></button>
+            <button class="stat panel entrance" style="--delay:.12s" onclick="showPage('tasks')"><div class="stat-icon sky"><svg><use href="#ic-check"/></svg></div><div class="stat-kicker">Tasks remaining</div><div class="stat-line"><strong id="statTasks">0</strong><span>to get done</span></div><div class="stat-foot">Keep things moving <span>↗</span></div></button>
+            <button class="stat panel entrance" style="--delay:.17s" onclick="showPage('goals')"><div class="stat-icon peach"><svg><use href="#ic-target"/></svg></div><div class="stat-kicker">Active goals</div><div class="stat-line"><strong id="statGoals">0</strong><span>in progress</span></div><div class="stat-foot">Work toward what matters <span>↗</span></div></button>
+            <button class="stat panel entrance" style="--delay:.22s" onclick="showPage('calendar')"><div class="stat-icon mint"><svg><use href="#ic-calendar"/></svg></div><div class="stat-kicker">Upcoming events</div><div class="stat-line"><strong id="statEvents">0</strong><span>on your schedule</span></div><div class="stat-foot">Stay one step ahead <span>↗</span></div></button>
+          </div>
+          <div class="dashboard-columns">
+            <div class="dashboard-stack">
+              <article class="panel dash-panel entrance" style="--delay:.25s"><div class="panel-header"><div><div class="section-overline">YOUR PRIORITIES</div><h3><svg><use href="#ic-target"/></svg> Closest goal</h3></div><button class="text-link" onclick="showPage('goals')">View all <span>→</span></button></div><div id="dashboardGoal" class="goal-feature"></div></article>
+              <article class="panel dash-panel entrance" style="--delay:.31s"><div class="panel-header"><div><div class="section-overline">PICK UP WHERE YOU LEFT OFF</div><h3><svg><use href="#ic-book"/></svg> Recent notebooks</h3></div><button class="text-link" onclick="showPage('notebooks')">View all <span>→</span></button></div><div class="recent-notebooks" id="dashboardBooks"></div></article>
+            </div>
+            <div class="dashboard-stack">
+              <article class="panel dash-panel entrance" style="--delay:.28s"><div class="panel-header"><div><div class="section-overline">MAKE PROGRESS</div><h3><svg><use href="#ic-check"/></svg> Your task list</h3></div><button class="text-link" onclick="showPage('tasks')">View all <span>→</span></button></div><div id="dashboardTasks" class="dash-tasks"></div><button class="panel-add" onclick="quickCreate('task')"><svg><use href="#ic-plus"/></svg> Add a task</button></article>
+              <article class="panel dash-panel entrance" style="--delay:.34s"><div class="panel-header"><div><div class="section-overline">ON THE HORIZON</div><h3><svg><use href="#ic-calendar"/></svg> Coming up</h3></div><button class="text-link" onclick="showPage('calendar')">Calendar <span>→</span></button></div><div id="dashboardEvents"></div></article>
+            </div>
+          </div>
+          <div class="dashboard-footer"><span>✦</span> Your next chapter starts with what you do today. <span>✦</span></div>
+        </section>
+
+        <section id="notebooks" class="view hidden">
+          <div class="page-heading"><div><div class="eyebrow">YOUR KNOWLEDGE SPACE</div><h1>Notebooks <span class="heading-spark">✧</span></h1><p>450 pages for every idea, thought, project, and class.</p></div></div>
+          <div class="panel form-panel"><h3>Create a notebook</h3><div class="inline-form"><input id="bookName" placeholder="e.g. Biology, Project Ideas, Meeting Notes" maxlength="100" onkeydown="if(event.key==='Enter')createNotebook()"><button class="button button-primary" onclick="createNotebook()"><svg><use href="#ic-plus"/></svg> Create notebook</button></div></div>
+          <div class="panel form-panel"><div class="panel-header"><h3>Your notebooks</h3><span class="muted" id="notebookCount">0 notebooks</span></div><div id="notebookList" class="notebook-grid"></div></div>
+          <div class="panel form-panel hidden" id="editor"><div class="panel-header"><h3 id="bookTitle"></h3><span class="pill">Page <span id="pageNum">1</span> of 450</span></div><div class="editor-toolbar"><button class="button button-secondary" onclick="prevPage()">← Previous</button><button class="button button-secondary" onclick="nextPage()">Next →</button><button class="button button-soft" onclick="insertBullet()">• Bullet</button><button class="button button-soft" onclick="insertChecklist()">☐ Checklist</button><button class="button button-soft" onclick="readNotes()">♫ Listen</button><button class="button button-quiet" onclick="stopReading()">■ Stop</button></div><div class="voice-toolbar"><label for="voiceSelect">Voice</label><select id="voiceSelect" aria-label="Voice"></select><label for="voiceSpeed">Speed</label><select id="voiceSpeed"><option value="0.8">0.8×</option><option value="1" selected>1×</option><option value="1.2">1.2×</option><option value="1.5">1.5×</option></select></div><textarea id="noteText" placeholder="Start writing your notes..." spellcheck="true"></textarea><div class="editor-footer"><span id="saveIndicator">Your notes stay saved on this device.</span><button class="button button-primary" onclick="saveNotes()">Save notes</button></div></div>
+        </section>
+
+        <section id="tasks" class="view hidden"><div class="page-heading"><div><div class="eyebrow">STAY ON TRACK</div><h1>Tasks <span class="heading-spark">✓</span></h1><p>Organize your to-dos into task groups and unlimited pages.</p></div></div><div class="panel form-panel"><h3>Create a task group</h3><div class="inline-form"><input id="taskInput" placeholder="e.g. Science project" maxlength="120" onkeydown="if(event.key==='Enter')addTask()"><button class="button button-primary" onclick="addTask()">＋ Add group</button></div></div><div class="panel form-panel"><h3>My task groups</h3><div id="taskList"></div></div><div class="panel form-panel hidden" id="taskEditor"><div class="panel-header"><h3 id="taskTitle"></h3><span class="pill">Page <span id="taskPageNum">1 / 1</span></span></div><label class="field-label" for="taskPageTitle">Page name</label><input id="taskPageTitle" placeholder="Page title"><div class="editor-toolbar"><button class="button button-secondary" onclick="prevTaskPage()">← Previous</button><button class="button button-secondary" onclick="nextTaskPage()">Next →</button><button class="button button-primary" onclick="addTaskPage()">＋ Add task page</button><button class="button button-danger" onclick="deleteTaskPage()">Delete page</button></div><h4>Things to do</h4><div class="inline-form"><input id="taskItemInput" placeholder="Add a checklist item" onkeydown="if(event.key==='Enter')addTaskItem()"><button class="button button-primary" onclick="addTaskItem()">Add item</button></div><div id="taskItemsList"></div><label class="field-label" for="taskPageText">Notes for this page</label><textarea id="taskPageText" placeholder="Add details or notes here..."></textarea><button class="button button-primary" onclick="saveTaskPage()">Save page</button></div></section>
+
+        <section id="goals" class="view hidden"><div class="page-heading"><div><div class="eyebrow">YOUR FUTURE, YOUR PACE</div><h1>Goals <span class="heading-spark">✧</span></h1><p>Set a direction, celebrate progress, and keep going.</p></div></div><div class="panel form-panel"><h3>New goal</h3><div class="form-grid"><label>Goal name<input id="goalInput" placeholder="e.g. Finish my science project" maxlength="120"></label><label>Progress %<input id="goalProgress" type="number" min="0" max="100" value="0"></label><label>Target date<input id="goalDate" type="date"></label><label>Priority<select id="goalPriority"><option>High</option><option selected>Medium</option><option>Low</option></select></label></div><button class="button button-primary" onclick="addGoal()">＋ Add goal</button></div><div class="panel form-panel"><h3>Your goals</h3><div id="goalList" class="goal-list"></div></div></section>
+
+        <section id="calendar" class="view hidden"><div class="page-heading"><div><div class="eyebrow">WHAT'S NEXT</div><h1>Calendar <span class="heading-spark">✧</span></h1><p>Make room for the things that matter to you.</p></div></div><div class="panel form-panel"><h3>Add event</h3><div class="inline-form"><input id="eventInput" placeholder="Event name" maxlength="120"><input id="eventDate" type="date"><button class="button button-primary" onclick="addEvent()">＋ Add event</button></div></div><div class="panel form-panel calendar-panel"><div class="calendar-header"><div><div class="section-overline">MONTH VIEW</div><h3 id="calendarTitle"></h3></div><div class="calendar-actions"><button class="button button-secondary" onclick="todayMonth()">Today</button><button class="icon-button" onclick="prevMonth()" aria-label="Previous month">‹</button><button class="icon-button" onclick="nextMonth()" aria-label="Next month">›</button></div></div><div class="calendar-scroll"><div class="calendar-grid weekday-row"><div class="day-name">Sun</div><div class="day-name">Mon</div><div class="day-name">Tue</div><div class="day-name">Wed</div><div class="day-name">Thu</div><div class="day-name">Fri</div><div class="day-name">Sat</div></div><div class="calendar-grid" id="calendarGrid"></div></div></div><div class="panel form-panel"><h3>All events</h3><div id="eventList"></div></div></section>
+
+        <section id="ai" class="view hidden">
+  <div class="page-heading">
+    <div><div class="eyebrow">YOUR THINKING PARTNER</div><h1>ChatGPT Assistant <span class="heading-spark">✦</span></h1>
+      <p>Bring a notebook into ChatGPT to get explanations, summaries, study guides, or quizzes.</p></div>
+  </div>
+  <div class="panel form-panel ai-preview">
+    <div class="ai-icon-large">✦</div>
+    <h2>Think it through with ChatGPT</h2>
+    <p>Choose a notebook, write your question, then copy the notes and question into ChatGPT.</p>
+    <label class="field-label" for="chatNotebookSelect">Notebook to use</label>
+    <select id="chatNotebookSelect"><option value="">No notebook (just my question)</option></select>
+    <label class="field-label" for="chatQuestion">What would you like to ask?</label>
+    <textarea id="chatQuestion" rows="5" placeholder="Example: Make me a 10-question quiz based on these notes."></textarea>
+    <div class="editor-toolbar">
+      <button class="button button-primary" onclick="copyForChatGPT()">Copy notes + question</button>
+      <a class="button button-secondary" href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer">Open ChatGPT ↗</a>
+    </div>
+    <p class="muted" id="aiOutput" role="status" aria-live="polite">Nothing is sent automatically. You choose what to paste into ChatGPT.</p>
+    <div class="ai-explainer">
+      <strong>Want ChatGPT to answer right inside Nexus Notes?</strong>
+      <p>That needs an OpenAI API connection through a secure server. A ChatGPT subscription does not automatically connect to this website, and API use may cost money. Never put an API key in a public HTML or JavaScript file.</p>
+    </div>
+  </div>
+</section>
+        <section id="tools" class="view hidden"><div class="page-heading"><div><div class="eyebrow">EXPLORE AND CREATE</div><h1>Tools Hub <span class="heading-spark">✳</span></h1><p>Spaces for the subjects and projects you work on.</p></div></div><div class="tools-grid"><div class="panel tool-tile">∑<h3>Mathematics</h3><p>Calculators, equations, graphs</p></div><div class="panel tool-tile">⚗<h3>Science</h3><p>Physics, chemistry, biology</p></div><div class="panel tool-tile">✎<h3>Writing</h3><p>Essays, outlines, citations</p></div><div class="panel tool-tile">⌘<h3>Coding</h3><p>Projects and programming</p></div><div class="panel tool-tile">▥<h3>Business</h3><p>Plans, budgets, tracking</p></div><div class="panel tool-tile">◈<h3>Creative</h3><p>Ideas and inspiration</p></div></div><p class="muted">These categories are previews; tools will be added in future updates.</p></section>
+        <section id="settings" class="view hidden"><div class="page-heading"><div><div class="eyebrow">MAKE IT YOURS</div><h1>Settings <span class="heading-spark">✧</span></h1><p>Personalize your space and protect your work.</p></div></div><div class="panel form-panel"><h3>Your profile</h3><div class="inline-form"><input id="profileName" placeholder="What should we call you?" maxlength="60"><button class="button button-primary" onclick="saveProfile()">Save name</button></div></div><div class="panel form-panel"><h3>Appearance</h3><div class="inline-form"><button class="button button-secondary" onclick="setTheme('dark')">☾ Dark mode</button><button class="button button-secondary" onclick="setTheme('light')">☀ Light mode</button></div></div><div class="panel form-panel"><h3>Backup & restore</h3><p class="muted">Your notes are saved in this browser only — not in the cloud. Export a backup regularly, especially before switching folders or browsers.</p><div class="inline-form"><button class="button button-secondary" onclick="exportBackup()">↓ Download backup (.json)</button><label class="button button-secondary file-label">↑ Import backup <input id="importBackup" type="file" accept=".json,application/json" onchange="importBackupFile(event)" hidden></label></div><p class="muted">Import replaces the current app data. Keep your downloaded backup somewhere safe.</p></div></section>
+      </main>
+    </div>
+  </div>
+  <div class="overlay hidden" id="commandOverlay" role="presentation" onclick="if(event.target===this)closeCommand()"><div class="command-panel" role="dialog" aria-modal="true" aria-label="Quick search"><div class="command-input"><svg><use href="#ic-search"/></svg><input id="commandInput" placeholder="Search notes, tasks, goals or navigate..." oninput="universalSearch()" autocomplete="off"><kbd>ESC</kbd></div><div id="searchResults" class="command-results"></div><div class="command-bottom"><span>Search across your saved workspace</span><span>↵ to open first result</span></div></div></div>
+<div class="welcome-overlay hidden" id="welcomeOverlay" role="dialog" aria-modal="true" aria-labelledby="welcomeHeading">
+  <div class="welcome-card">
+    <div class="welcome-graphic" aria-hidden="true"><div class="welcome-ring"></div><span>✦</span></div>
+    <div class="welcome-eyebrow">A LITTLE INSPIRATION FOR TODAY</div>
+    <h2 id="welcomeHeading">Welcome back!</h2>
+    <p id="welcomeGoalLabel" class="welcome-goal"></p>
+    <p id="welcomeQuote" class="welcome-quote"></p>
+    <div class="welcome-progress" id="welcomeProgress"></div>
+    <div class="welcome-actions">
+      <button type="button" class="button button-primary" onclick="closeWelcome()">Start my day →</button>
+      <button type="button" class="button button-secondary" id="welcomeViewGoal" onclick="closeWelcome(); showPage('goals')">See my goals</button>
+    </div>
+    <p class="welcome-footnote">You’ll get a fresh welcome each time you open Nexus Notes.</p>
+  </div>
+</div>
+  <div class="toast hidden" id="toast" role="status" aria-live="polite"></div>
+  <script src="js/state.js"></script><script src="js/navigation.js"></script><script src="js/notebooks.js"></script><script src="js/tasks.js"></script><script src="js/goals.js"></script><script src="js/calendar.js"></script><script src="js/search.js"></script><script src="js/ai.js"></script><script src="js/app.js"></script><script src="js/welcome.js"></script>
+</body>
+</html>
