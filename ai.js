@@ -1,0 +1,1 @@
+function fakeAI(){let q=document.getElementById("aiInput").value;document.getElementById("aiOutput").innerHTML="<div class='item'>🤖 AI: Gemini can be connected later. You asked: "+q+"</div>";}
