@@ -116,6 +116,28 @@ a.button{text-decoration:none}
 @media(max-width:600px){.subject-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.subject-tool-grid{grid-template-columns:1fr}.subject-workspace{padding:18px}.tools-intro{flex-direction:column;align-items:stretch}.tool-filter-label{max-width:none}.quick-note-drawer{padding:18px}.palette-row{grid-template-columns:repeat(3,1fr)}.focus-panel{padding:17px}.mini-input-row{flex-direction:column;align-items:stretch}.focus-clock{width:min(90%,285px)}}
 @media(prefers-reduced-motion:reduce){.quick-note-overlay,.quick-note-drawer{animation:none}.subject-card{transition:none}}
 
+
+/* Nexus Notes v5 — Project hub, drawing studio, notebook media and preferences */
+.project-picker{position:fixed;inset:0;z-index:200;background:radial-gradient(circle at 75% 10%,#443b8955,transparent 48%),#070b15ed;backdrop-filter:blur(19px);display:grid;place-items:center;overflow-y:auto;padding:24px}
+.project-picker-panel{width:min(1050px,100%);max-height:94vh;overflow-y:auto;padding:26px 16px 36px;scrollbar-width:thin}
+.project-brand{font-size:19px;font-weight:900;letter-spacing:-.5px;color:#fff;margin-bottom:40px}.project-brand span{color:#9e91ff}
+.project-topline{font-size:10px;letter-spacing:2.4px;font-weight:900;color:#b1a0ff;margin-bottom:9px}.project-head{display:flex;align-items:start;justify-content:space-between;gap:20px}.project-head h1{font-size:clamp(30px,4vw,49px);letter-spacing:-2px;margin:0}.project-head p{margin:8px 0 26px;color:#9ea9be;font-size:14px}
+.project-picker-close{border:1px solid #ffffff24;background:#ffffff10;color:#fff;font-size:25px;border-radius:12px;width:40px;height:40px;cursor:pointer}
+.projects-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px;margin:5px 0 27px}
+.project-card{border:1px solid #a8b5da29;border-radius:18px;background:linear-gradient(145deg,#161d2d,#101623);min-height:215px;padding:20px;display:flex;flex-direction:column;justify-content:space-between;gap:13px;transition:transform .2s,border-color .2s}
+.project-card:hover{transform:translateY(-2px);border-color:var(--project-color)}.project-card-main{display:flex;align-items:center;gap:14px;min-width:0;cursor:pointer;background:transparent;border:0;padding:0;text-align:left;color:inherit;width:100%}.project-color-icon{width:51px;height:51px;border-radius:14px;flex-shrink:0;display:grid;place-items:center;background:color-mix(in srgb,var(--project-color),transparent 77%);color:var(--project-color);font-size:26px;border:1px solid color-mix(in srgb,var(--project-color),transparent 64%)}.project-card h3{font-size:18px;margin:0;color:#fff;overflow-wrap:anywhere}.project-card p{font-size:12px;color:#9daac4;margin:4px 0 0}.project-card-actions{display:flex;align-items:center;gap:7px;flex-wrap:wrap}.project-card-actions button{background:#ffffff0b;border:1px solid #ffffff19;padding:8px 11px;font-size:11px;color:#ced5ea;border-radius:8px;cursor:pointer}.project-card-actions button:hover{border-color:var(--project-color)}
+.project-new{padding:23px;background:#171e2c;border:1px dashed #a79bff66;display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}.project-new h3{margin:0 0 3px;font-size:18px}.project-new p{margin:0;color:#a1aec5;font-size:12px}.project-new-controls{display:flex;align-items:center;flex-wrap:wrap;gap:9px}.project-new-controls input[type=text],.project-new-controls input:not([type]){width:250px}.project-new-controls input[type=color]{height:40px;width:47px;padding:4px;background:#141a29;border:1px solid #ffffff30;border-radius:9px}
+.project-bottom{display:flex;align-items:center;justify-content:space-between;color:#8e9cb5;font-size:11px;margin:22px 0 0;gap:10px}.project-bottom .button{color:#cdd6ef}.project-shortcut{border:1px solid var(--line-strong);background:var(--surface);color:var(--soft);padding:7px 11px;border-radius:9px;font-size:12px;font-weight:700;white-space:nowrap}.project-shortcut:hover{color:var(--text);border-color:var(--purple)}
+.book-create-color{display:flex;align-items:center;gap:8px;font-size:11px;color:var(--muted);font-weight:650;white-space:nowrap}.book-create-color input{height:38px;width:48px;padding:3px;border:1px solid var(--line-strong);background:var(--surface-3);border-radius:9px;cursor:pointer}.notebook-tile{--book-color:#9278fa;position:relative}.notebook-tile .tile-cover{color:var(--book-color);background:color-mix(in srgb,var(--book-color),transparent 85%)}.notebook-tile::before{content:'';height:4px;background:var(--book-color);position:absolute;left:0;right:0;top:0;border-radius:14px 14px 0 0}.notebook-tile .tile-actions{display:flex;flex-wrap:wrap;gap:7px}.tile-color-picker{height:33px!important;width:39px!important;padding:3px!important;border:1px solid var(--line-strong);border-radius:7px;background:var(--surface-3);cursor:pointer}.book-thumb{background:color-mix(in srgb,var(--book-color,#9278fa),transparent 80%)!important;color:var(--book-color,#9278fa)!important}
+.notebook-media{margin:20px 0 10px;padding:21px;box-shadow:none}.media-header{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}.media-header h4{margin:0 0 4px;font-size:15px}.media-header p{font-size:11px;color:var(--muted);margin:0}.notebook-media-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px;margin-top:17px}.media-thumb{border:1px solid var(--line-strong);border-radius:11px;padding:9px;background:var(--surface-2);min-width:0}.media-thumb img{width:100%;height:130px;object-fit:contain;background:#fff;border-radius:7px}.media-thumb figcaption{font-size:11px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--soft);margin:7px 0}.media-thumb button{border:0;background:transparent;color:#f8a0ae;cursor:pointer;font-size:11px}
+.draw-layout{display:grid;grid-template-columns:minmax(0,1fr) 265px;gap:17px;margin-bottom:22px}.draw-pad,.drawing-side{padding:18px}.draw-toolbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:13px}.draw-toolbar label{display:flex;align-items:center;gap:9px;font-size:12px;color:var(--muted)}.draw-toolbar input[type=color]{width:41px;height:37px;background:transparent;border:1px solid var(--line-strong);border-radius:8px;padding:2px}.draw-toolbar input[type=range]{width:105px;accent-color:var(--purple)}.draw-toolbar output{font-size:11px;color:var(--soft)}.draw-toolbar .is-on{background:var(--purple);color:#fff}
+#drawCanvas{background:#fff;border:1px solid #b7c0d8;touch-action:none;width:100%;height:auto;aspect-ratio:1100/650;display:block;border-radius:12px;cursor:crosshair}.draw-bottom{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin-top:14px}.draw-bottom input{flex:1;min-width:160px}.drawing-side{display:flex;flex-direction:column;gap:11px}.drawing-side h3{font-size:18px;margin:0}.drawing-side p{font-size:12px;color:var(--muted);margin:0 0 10px}.drawing-side label{font-size:12px;color:var(--muted);display:flex;flex-direction:column;gap:7px}.drawing-side select,.drawing-side input{width:100%}.draw-tip{font-size:11px;background:var(--surface-2);color:var(--soft);padding:14px;border-radius:10px;line-height:1.7}.draw-gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:13px}.draw-gallery-card{background:var(--surface-2);border:1px solid var(--line);border-radius:12px;padding:12px;min-width:0}.draw-gallery-card img{width:100%;height:125px;object-fit:contain;background:white;border-radius:8px}.draw-gallery-card b{font-size:12px;display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin:8px 0}.draw-gallery-card .inline-form{gap:6px}.draw-gallery-card .button{font-size:11px;padding:7px;min-height:31px}.draw-empty{color:var(--muted);font-size:13px;padding:25px;background:var(--surface-2);border-radius:11px}
+.preference-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px;margin:18px 0}.preference-grid>label{display:flex;flex-direction:column;gap:7px;font-weight:700;font-size:12px;color:var(--soft)}.preference-grid .pref-check{flex-direction:row;align-items:center;gap:9px;padding:12px;background:var(--surface-2);border-radius:9px}.preference-grid input[type=checkbox]{width:17px;height:17px;accent-color:var(--purple)}.preference-grid input[type=color]{height:42px;width:100%;padding:4px;border-radius:8px;background:var(--surface-2);border:1px solid var(--line-strong)}
+html[data-density=compact] .panel.form-panel{padding:18px}html[data-density=roomy] .panel.form-panel{padding:33px}html[data-reduced-motion=true] *,html[data-reduced-motion=true] *:before,html[data-reduced-motion=true] *:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+html[data-readable=true] body,html[data-readable=true] button,html[data-readable=true] input,html[data-readable=true] textarea,html[data-readable=true] select{font-family:Verdana,Tahoma,sans-serif!important;letter-spacing:.01em}html[data-high-contrast=true]{--muted:#c3cadb;--line:rgba(200,216,255,.34);--line-strong:rgba(211,223,255,.55)}html[data-high-contrast=true][data-theme=light]{--muted:#46516c;--line:rgba(29,41,74,.36);--line-strong:rgba(29,41,74,.6)}
+@media(max-width:950px){.draw-layout{grid-template-columns:1fr}.projects-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.preference-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.project-new-controls input[type=text],.project-new-controls input:not([type]){width:200px}}
+@media(max-width:620px){.project-picker{padding:12px}.projects-grid{grid-template-columns:1fr}.project-picker-panel{max-height:none;padding:12px}.project-new-controls{width:100%}.project-new-controls input:not([type]){flex:1;min-width:140px}.project-bottom{flex-wrap:wrap}.preference-grid{grid-template-columns:1fr}.project-shortcut span{display:none}.draw-toolbar{gap:7px}.draw-pad{padding:10px}.draw-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}.notebook-media{padding:12px}}
+
 </style>
 </head>
 <body>
@@ -140,7 +162,7 @@ a.button{text-decoration:none}
   <div class="app-shell" id="appShell">
     <aside class="sidebar" id="sidebar">
       <div class="brand"><span class="brand-symbol">✦</span><div><div class="brand-title">Nexus<span>Notes</span></div><div class="brand-subtitle">PERSONAL WORKSPACE</div></div></div>
-      <button class="workspace-select" type="button" onclick="showPage('settings')"><span class="workspace-avatar">N</span><span class="workspace-details"><b>My workspace</b><small>Personal plan</small></span><span class="workspace-dots">⋯</span></button>
+      <button class="workspace-select" type="button" onclick="openProjectPicker()"><span class="workspace-avatar" id="activeProjectAvatar">✦</span><span class="workspace-details"><b id="activeProjectName">Choose a project</b><small>Switch project ↗</small></span><span class="workspace-dots">⋯</span></button>
       <div class="sidebar-divider"></div>
       <div class="nav-label">WORKSPACE</div>
       <nav aria-label="Main navigation">
@@ -153,6 +175,7 @@ a.button{text-decoration:none}
         <button class="nav-link" data-page="ai" onclick="showPage('ai')"><svg><use href="#ic-spark"/></svg><span>ChatGPT Assistant</span><span class="soon-pill">ChatGPT</span></button>
         <button class="nav-link" data-page="tools" onclick="showPage('tools')"><svg><use href="#ic-grid"/></svg><span>Tools hub</span></button>
         <button class="nav-link" data-page="focus" onclick="showPage('focus')"><svg><use href="#ic-clock"/></svg><span>Focus timer</span></button>
+        <button class="nav-link" data-page="drawings" onclick="showPage('drawings')"><svg><use href="#ic-spark"/></svg><span>Drawing studio</span></button>
         <div class="nav-label nav-group-space">PREFERENCES</div>
         <button class="nav-link" data-page="settings" onclick="showPage('settings')"><svg><use href="#ic-settings"/></svg><span>Settings & backup</span></button>
       </nav>
@@ -162,7 +185,7 @@ a.button{text-decoration:none}
     <div class="workspace-main">
       <header class="topbar">
         <div class="topbar-left"><button class="icon-button mobile-only" type="button" onclick="toggleSidebar()" aria-label="Toggle menu"><svg><use href="#ic-menu"/></svg></button><div class="breadcrumb"><span>Nexus Notes</span><svg><use href="#ic-chevron"/></svg><strong id="currentBreadcrumb">Overview</strong></div></div>
-        <div class="topbar-right"><button class="quick-launch" id="quickNoteLaunch" type="button" onclick="toggleQuickNote()" title="Quick note (Q)" aria-label="Open Quick Note, shortcut Q"><span class="quick-launch-icon">Q</span><span>Quick note</span></button><button class="mini-timer hidden" id="miniTimer" type="button" onclick="showPage('focus')" title="Open focus timer">◷ <span id="miniTimerText">25:00</span></button><button class="search-launch" type="button" onclick="openCommand()"><svg><use href="#ic-search"/></svg><span>Search anything...</span><kbd>Ctrl K</kbd></button><span class="topbar-separator"></span><div class="today-label" id="topDate"></div><button class="profile-button" onclick="showPage('settings')" aria-label="Profile settings">N</button></div>
+        <div class="topbar-right"><button class="project-shortcut" type="button" onclick="openProjectPicker()">▦ <span>Projects</span></button><button class="quick-launch" id="quickNoteLaunch" type="button" onclick="toggleQuickNote()" title="Quick note (Q)" aria-label="Open Quick Note, shortcut Q"><span class="quick-launch-icon">Q</span><span>Quick note</span></button><button class="mini-timer hidden" id="miniTimer" type="button" onclick="showPage('focus')" title="Open focus timer">◷ <span id="miniTimerText">25:00</span></button><button class="search-launch" type="button" onclick="openCommand()"><svg><use href="#ic-search"/></svg><span>Search anything...</span><kbd>Ctrl K</kbd></button><span class="topbar-separator"></span><div class="today-label" id="topDate"></div><button class="profile-button" onclick="showPage('settings')" aria-label="Profile settings">N</button></div>
       </header>
       <main class="content">
         <section id="dashboard" class="view active-view">
@@ -189,9 +212,11 @@ a.button{text-decoration:none}
 
         <section id="notebooks" class="view hidden">
           <div class="page-heading"><div><div class="eyebrow">YOUR KNOWLEDGE SPACE</div><h1>Notebooks <span class="heading-spark">✧</span></h1><p>450 pages for every idea, thought, project, and class.</p></div></div>
-          <div class="panel form-panel"><h3>Create a notebook</h3><div class="inline-form"><input id="bookName" placeholder="e.g. Biology, Project Ideas, Meeting Notes" maxlength="100" onkeydown="if(event.key==='Enter')createNotebook()"><button class="button button-primary" onclick="createNotebook()"><svg><use href="#ic-plus"/></svg> Create notebook</button></div></div>
+          <div class="panel form-panel"><h3>Create a notebook</h3><div class="inline-form"><input id="bookName" placeholder="e.g. Biology, Project Ideas, Meeting Notes" maxlength="100" onkeydown="if(event.key==='Enter')createNotebook()"><label class="book-create-color">Cover color <input id="newBookColor" type="color" value="#9779fb" aria-label="New notebook color"></label><button class="button button-primary" onclick="createNotebook()"><svg><use href="#ic-plus"/></svg> Create notebook</button></div></div>
           <div class="panel form-panel"><div class="panel-header"><h3>Your notebooks</h3><span class="muted" id="notebookCount">0 notebooks</span></div><div id="notebookList" class="notebook-grid"></div></div>
-          <div class="panel form-panel hidden" id="editor"><div class="panel-header"><h3 id="bookTitle"></h3><span class="pill">Page <span id="pageNum">1</span> of 450</span></div><div class="editor-toolbar"><button class="button button-secondary" onclick="prevPage()">← Previous</button><button class="button button-secondary" onclick="nextPage()">Next →</button><button class="button button-soft" onclick="insertBullet()">• Bullet</button><button class="button button-soft" onclick="insertChecklist()">☐ Checklist</button><button class="button button-soft" onclick="readNotes()">♫ Listen</button><button class="button button-quiet" onclick="stopReading()">■ Stop</button></div><div class="voice-toolbar"><label for="voiceSelect">Voice</label><select id="voiceSelect" aria-label="Voice"></select><label for="voiceSpeed">Speed</label><select id="voiceSpeed"><option value="0.8">0.8×</option><option value="1" selected>1×</option><option value="1.2">1.2×</option><option value="1.5">1.5×</option></select></div><textarea id="noteText" placeholder="Start writing your notes..." spellcheck="true"></textarea><div class="editor-footer"><span id="saveIndicator">Your notes stay saved on this device.</span><button class="button button-primary" onclick="saveNotes()">Save notes</button></div></div>
+          <div class="panel form-panel hidden" id="editor"><div class="panel-header"><h3 id="bookTitle"></h3><span class="pill">Page <span id="pageNum">1</span> of 450</span></div><div class="editor-toolbar"><label class="book-create-color">Book color <input id="editBookColor" type="color" value="#9779fb" aria-label="Notebook cover color" onchange="setNotebookColor(currentNotebook,this.value)"></label><button class="button button-secondary" onclick="prevPage()">← Previous</button><button class="button button-secondary" onclick="nextPage()">Next →</button><button class="button button-soft" onclick="insertBullet()">• Bullet</button><button class="button button-soft" onclick="insertChecklist()">☐ Checklist</button><button class="button button-soft" onclick="readNotes()">♫ Listen</button><button class="button button-quiet" onclick="stopReading()">■ Stop</button></div><div class="voice-toolbar"><label for="voiceSelect">Voice</label><select id="voiceSelect" aria-label="Voice"></select><label for="voiceSpeed">Speed</label><select id="voiceSpeed"><option value="0.8">0.8×</option><option value="1" selected>1×</option><option value="1.2">1.2×</option><option value="1.5">1.5×</option></select></div><textarea id="noteText" placeholder="Start writing your notes..." spellcheck="true" aria-describedby="noteImageHelp"></textarea>
+          <div class="notebook-media panel"><div class="media-header"><div><h4>🖼️ Images & drawings on this page</h4><p id="noteImageHelp">Paste a copied image while typing, or add a file. Images are attached below your writing.</p></div><div class="inline-form"><button class="button button-secondary" type="button" onclick="pasteNotebookImage()">⎘ Paste image</button><label class="button button-secondary file-label">＋ Upload image <input id="notebookImageInput" type="file" accept="image/*" multiple hidden onchange="uploadNotebookImages(event)"></label><button class="button button-soft" type="button" onclick="showPage('drawings')">✎ Draw</button></div></div><div id="notebookMediaGrid" class="notebook-media-grid"></div></div>
+          <div class="editor-footer"><span id="saveIndicator">Your notes stay saved on this device.</span><button class="button button-primary" onclick="saveNotes()">Save notes</button></div></div>
         </section>
 
         <section id="tasks" class="view hidden"><div class="page-heading"><div><div class="eyebrow">STAY ON TRACK</div><h1>Tasks <span class="heading-spark">✓</span></h1><p>Organize your to-dos into task groups and unlimited pages.</p></div></div><div class="panel form-panel"><h3>Create a task group</h3><div class="inline-form"><input id="taskInput" placeholder="e.g. Science project" maxlength="120" onkeydown="if(event.key==='Enter')addTask()"><button class="button button-primary" onclick="addTask()">＋ Add group</button></div></div><div class="panel form-panel"><h3>My task groups</h3><div id="taskList"></div></div><div class="panel form-panel hidden" id="taskEditor"><div class="panel-header"><h3 id="taskTitle"></h3><span class="pill">Page <span id="taskPageNum">1 / 1</span></span></div><label class="field-label" for="taskPageTitle">Page name</label><input id="taskPageTitle" placeholder="Page title"><div class="editor-toolbar"><button class="button button-secondary" onclick="prevTaskPage()">← Previous</button><button class="button button-secondary" onclick="nextTaskPage()">Next →</button><button class="button button-primary" onclick="addTaskPage()">＋ Add task page</button><button class="button button-danger" onclick="deleteTaskPage()">Delete page</button></div><h4>Things to do</h4><div class="inline-form"><input id="taskItemInput" placeholder="Add a checklist item" onkeydown="if(event.key==='Enter')addTaskItem()"><button class="button button-primary" onclick="addTaskItem()">Add item</button></div><div id="taskItemsList"></div><label class="field-label" for="taskPageText">Notes for this page</label><textarea id="taskPageText" placeholder="Add details or notes here..."></textarea><button class="button button-primary" onclick="saveTaskPage()">Save page</button></div></section>
@@ -284,10 +309,38 @@ a.button{text-decoration:none}
     <aside class="panel focus-side"><div class="focus-side-icon">✦</div><h3>Show up for yourself</h3><p>You don't need hours of motivation. Just start with one focused session.</p><div class="focus-metric"><span>Completed focus sessions</span><strong id="focusSessionsCount">0</strong></div><div class="focus-hint"><b>How to use it</b><p>Pick a session, press Start, and keep working. The timer keeps running when you visit other pages in Nexus Notes.</p></div><button class="button button-secondary" onclick="toggleQuickNote()">✎ Capture a thought (Q)</button></aside>
   </div>
 </section>
-<section id="settings" class="view hidden"><div class="page-heading"><div><div class="eyebrow">MAKE IT YOURS</div><h1>Settings <span class="heading-spark">✧</span></h1><p>Personalize your space and protect your work.</p></div></div><div class="panel form-panel"><h3>Your profile</h3><div class="inline-form"><input id="profileName" placeholder="What should we call you?" maxlength="60"><button class="button button-primary" onclick="saveProfile()">Save name</button></div></div><div class="panel form-panel"><h3>Appearance</h3><div class="inline-form"><button class="button button-secondary" onclick="setTheme('dark')">☾ Dark mode</button><button class="button button-secondary" onclick="setTheme('light')">☀ Light mode</button></div></div><div class="panel form-panel"><h3>Backup & restore</h3><p class="muted">Your notes are saved in this browser only — not in the cloud. Export a backup regularly, especially before switching folders or browsers.</p><div class="inline-form"><button class="button button-secondary" onclick="exportBackup()">↓ Download backup (.json)</button><label class="button button-secondary file-label">↑ Import backup <input id="importBackup" type="file" accept=".json,application/json" onchange="importBackupFile(event)" hidden></label></div><p class="muted">Import replaces the current app data. Keep your downloaded backup somewhere safe.</p></div></section>
+<section id="drawings" class="view hidden">
+  <div class="page-heading"><div><div class="eyebrow">CREATE SOMETHING YOUR OWN</div><h1>Drawing Studio <span class="heading-spark">✎</span></h1><p>Draw with your mouse, touchscreen, or pen. Save artwork and place it in any notebook.</p></div></div>
+  <div class="draw-layout"><div class="panel draw-pad"><div class="draw-toolbar">
+  <label>Color <input id="drawColor" type="color" value="#9278fa" aria-label="Pen color"></label>
+  <label>Brush <input id="drawBrush" type="range" min="1" max="42" value="5" oninput="el('drawBrushValue').textContent=this.value+' px'"><output id="drawBrushValue">5 px</output></label>
+  <button class="button button-secondary" id="drawEraser" type="button" onclick="toggleDrawEraser()">⌫ Eraser</button>
+  <button class="button button-secondary" type="button" onclick="undoDrawing()">↶ Undo</button>
+  <button class="button button-quiet" type="button" onclick="clearDrawing()">Clear</button></div>
+  <canvas id="drawCanvas" width="1100" height="650" aria-label="Drawing canvas"></canvas><div class="draw-bottom"><input id="drawingTitle" maxlength="95" value="My drawing" aria-label="Drawing title"><button class="button button-primary" type="button" onclick="saveDrawing()">↓ Save drawing</button><button class="button button-secondary" type="button" onclick="downloadDrawing()">Download PNG</button></div>
+  <p class="muted">Drawings are saved to this browser. Save your drawing to add it to a notebook or your gallery.</p></div>
+  <aside class="panel drawing-side"><h3>Add artwork to a notebook</h3><p>Save the artwork, then pick a notebook and page. You can also use drawings saved earlier.</p><label>Notebook <select id="drawingBookSelect" onchange="updateDrawingAttachState()"></select></label><label>Page number <input id="drawingPageNumber" type="number" min="1" max="450" value="1"></label><button class="button button-soft" type="button" onclick="attachLastDrawing()">＋ Add latest saved drawing</button><div class="draw-tip">Tip: Open a notebook and select a page first to have it preselected here.</div></aside></div>
+  <div class="panel form-panel"><div class="panel-header"><h3>Saved drawings</h3><span class="muted" id="drawingCount">0 drawings</span></div><div class="draw-gallery" id="drawingGallery"></div></div>
+</section>
+<section id="settings" class="view hidden"><div class="page-heading"><div><div class="eyebrow">MAKE IT YOURS</div><h1>Settings <span class="heading-spark">✧</span></h1><p>Personalize your space and protect your work.</p></div></div><div class="panel form-panel"><h3>Your profile</h3><div class="inline-form"><input id="profileName" placeholder="What should we call you?" maxlength="60"><button class="button button-primary" onclick="saveProfile()">Save name</button></div></div><div class="panel form-panel"><h3>Appearance</h3><div class="inline-form"><button class="button button-secondary" onclick="setTheme('dark')">☾ Dark mode</button><button class="button button-secondary" onclick="setTheme('light')">☀ Light mode</button></div></div><div class="panel form-panel"><h3>Accessibility & layout</h3><p class="muted">Adjust Nexus Notes for easier reading and comfortable navigation.</p>
+  <div class="preference-grid"><label>Text & interface size <select id="prefSize" onchange="updatePreference('size',this.value)"><option value="90">Small (90%)</option><option value="100">Default (100%)</option><option value="115">Large (115%)</option><option value="130">Extra large (130%)</option><option value="150">Very large (150%)</option></select></label>
+  <label>Space between items <select id="prefDensity" onchange="updatePreference('density',this.value)"><option value="comfortable">Comfortable</option><option value="compact">Compact</option><option value="roomy">Roomy</option></select></label>
+  <label>Accent color <input id="prefAccent" type="color" value="#9278fa" onchange="updatePreference('accent',this.value)"></label>
+  <label class="pref-check"><input id="prefContrast" type="checkbox" onchange="updatePreference('contrast',this.checked)"> High contrast</label>
+  <label class="pref-check"><input id="prefMotion" type="checkbox" onchange="updatePreference('reducedMotion',this.checked)"> Reduce animations</label>
+  <label class="pref-check"><input id="prefReadable" type="checkbox" onchange="updatePreference('readableFont',this.checked)"> Easy-to-read font</label>
+  </div><button class="button button-quiet" onclick="resetPreferences()">Reset appearance settings</button></div>
+  <div class="panel form-panel"><h3>Project management</h3><p class="muted">Create separate spaces for subjects, school, or personal plans. Each project has its own notebooks, drawings, goals, tasks, and calendar.</p><div class="inline-form"><button class="button button-secondary" onclick="openProjectPicker()">▦ Switch or rename projects</button><button class="button button-secondary" onclick="exportBackup()">↓ Back up all projects</button></div></div>
+  <div class="panel form-panel"><h3>Backup & restore</h3><p class="muted">Your projects and notes are stored on this device only, not synced to other devices. Export a complete backup, including images, before clearing browser data.</p><div class="inline-form"><button class="button button-secondary" onclick="exportBackup()">↓ Download backup (.json)</button><label class="button button-secondary file-label">↑ Import backup <input id="importBackup" type="file" accept=".json,application/json" onchange="importBackupFile(event)" hidden></label></div><p class="muted">A full backup includes all projects, settings, drawings and images. Importing a full backup replaces the current projects on this device.</p></div></section>
       </main>
     </div>
   </div>
+<div id="projectPickerOverlay" class="project-picker hidden" role="dialog" aria-modal="true" aria-labelledby="projectPickerTitle">
+  <div class="project-picker-panel"><div class="project-brand">✦ NEXUS<span>NOTES</span></div><div class="project-topline">YOUR SPACE, YOUR WAY</div><div class="project-head"><div><h1 id="projectPickerTitle">Choose your project</h1><p>Pick up where you left off, or start a new space for something different.</p></div><button class="project-picker-close" type="button" onclick="closeProjectPicker()" aria-label="Close project picker">×</button></div>
+  <div id="projectsGrid" class="projects-grid"></div>
+  <div class="project-new panel"><div><h3>＋ Create a new project</h3><p>Give your new workspace any name you like.</p></div><div class="project-new-controls"><input id="newProjectName" maxlength="75" placeholder="e.g. School, My Business, Science" aria-label="New project name"><input id="newProjectColor" type="color" value="#9377f5" aria-label="Project color"><button class="button button-primary" onclick="createProject()">Create project →</button></div></div>
+  <div class="project-bottom"><span>🔒 Saved on this browser • No account or payment needed</span><button class="button button-quiet" onclick="closeProjectPicker()" id="projectStayButton">Stay in current project</button></div></div>
+</div>
   <div class="quick-note-overlay hidden" id="quickNoteOverlay" onclick="if(event.target===this)closeQuickNote()">
     <aside class="quick-note-drawer" role="dialog" aria-modal="true" aria-labelledby="quickNoteHeading">
       <header class="quick-note-header"><div><div class="eyebrow">CAPTURE IT BEFORE YOU FORGET</div><h2 id="quickNoteHeading">✎ Quick Notes <kbd>Q</kbd></h2></div><button class="quick-close" onclick="closeQuickNote()" type="button" aria-label="Close Quick Notes">✕</button></header>
@@ -999,7 +1052,7 @@ renderNotebooks=function(){
   refreshChatGPTNotebooks();
 };
 refreshChatGPTNotebooks();
-showWelcomeMotivation();
+// The project picker controls the startup greeting.
 
 </script>
 <script>
@@ -1271,6 +1324,366 @@ importBackupFile=async function(event){
 /* Update footer and start tools only after the original app has initialized */
 filterSubjectTools();
 focusTick();
+
+</script>
+<script>
+/* Nexus Notes v5 — Free project workspaces, notebook photos, drawings and accessibility.
+   No passwords, servers, trackers or paid services. */
+const PROJECTS_KEY='nn_projects_index_v1';
+const PROJECT_DATA_PREFIX='nn_project_data_v1_';
+const DEFAULT_PROJECT_COLOR='#9278fa';
+const NOTEBOOK_COLORS=['#9278fa','#4cb5ee','#37bfa2','#f59f63','#ef739d','#d2ad63'];
+const PREFS_KEY='nn_preferences_v1';
+const isHexColor=v=>typeof v==='string'&&/^#[0-9a-f]{6}$/i.test(v);
+const projectId=()=>('p'+(crypto.randomUUID?crypto.randomUUID().replace(/-/g,''):Date.now().toString(36)+Math.random().toString(36).slice(2)));
+let projects=[],activeProjectId=null,lastDrawingId=null,projectPickerIsStartup=true;
+let drawings=[];
+let preferences=loadLocal(PREFS_KEY,{size:'100',density:'comfortable',accent:DEFAULT_PROJECT_COLOR,contrast:false,reducedMotion:false,readableFont:false});
+let mediaDatabasePromise=null,mediaGridVersion=0,drawGalleryVersion=0;
+let noteMediaUrls=[],galleryUrls=[];
+let drawingInProgress=false,drawErase=false,drawingHistory=[],drawReady=false,drawPointer=null;
+
+function cleanProjectData(source){
+ const data=source&&typeof source==='object'?source:{};
+ return {
+  notebooks:Array.isArray(data.notebooks)?data.notebooks:[],
+  goals:Array.isArray(data.goals)?data.goals:[],
+  tasks:Array.isArray(data.tasks)?data.tasks:[],
+  events:Array.isArray(data.events)?data.events:[],
+  quickNotes:Array.isArray(data.quickNotes)?data.quickNotes:[],
+  subjectData:data.subjectData&&typeof data.subjectData==='object'&&!Array.isArray(data.subjectData)?data.subjectData:{},
+  tutorChats:Array.isArray(data.tutorChats)?data.tutorChats:[],
+  drawings:Array.isArray(data.drawings)?data.drawings:[]
+ };
+}
+function projectSnapshot(){return cleanProjectData({notebooks,goals,tasks,events,quickNotes,subjectData,tutorChats,drawings});}
+function storeProjectIndex(){
+ try{localStorage.setItem(PROJECTS_KEY,JSON.stringify(projects));return true;}
+ catch(err){notice('Unable to save project list. Browser storage may be full.');return false;}
+}
+function storeActiveProject(){
+ if(!activeProjectId)return false;
+ try{localStorage.setItem(PROJECT_DATA_PREFIX+activeProjectId,JSON.stringify(projectSnapshot()));return true;}
+ catch(err){console.warn(err);notice('Could not save project. Download a backup and free up browser storage.');return false;}
+}
+// Project-specific storage replaces only the legacy global storage writes; old data is retained as a safety copy.
+persistAll=function(){return activeProjectId?storeActiveProject():originalLegacyPersist()};
+const originalLegacyPersist=()=>{
+ try{localStorage.setItem('notebooks',JSON.stringify(notebooks));localStorage.setItem('goals',JSON.stringify(goals));localStorage.setItem('tasks',JSON.stringify(tasks));localStorage.setItem('events',JSON.stringify(events));return true}catch(e){return false}
+};
+saveQuickNotes=function(){storeActiveProject();if(el('quickNoteStatus'))el('quickNoteStatus').textContent='✓ Saved in this project'};
+saveSubjectData=function(){storeActiveProject()};
+tutorStore=function(){storeActiveProject()};
+
+function initProjects(){
+ const stored=loadLocal(PROJECTS_KEY,null);
+ if(Array.isArray(stored)&&stored.length){
+   projects=stored.filter(p=>p&&typeof p.id==='string'&&typeof p.name==='string').map(p=>({id:p.id,name:p.name.slice(0,75),color:isHexColor(p.color)?p.color:DEFAULT_PROJECT_COLOR,createdAt:p.createdAt||Date.now()}));
+ }
+ if(!projects.length){
+   const id=projectId();projects=[{id,name:'My first project',color:DEFAULT_PROJECT_COLOR,createdAt:Date.now()}];
+   // Migrate existing non-Firebase Nexus Notes work into the starter project without deleting the original storage keys.
+   try{localStorage.setItem(PROJECT_DATA_PREFIX+id,JSON.stringify(projectSnapshot()))}catch(e){notice('Storage is full; back up your notes before adding projects')}
+   storeProjectIndex();
+ }
+ renderProjectPicker();
+ openProjectPicker(true);
+}
+function displayProjectName(){
+ const p=projects.find(p=>p.id===activeProjectId);
+ if(!p)return;
+ el('activeProjectName').textContent=p.name;
+ const icon=el('activeProjectAvatar');icon.style.background=`linear-gradient(135deg,${p.color},#373e66)`;icon.textContent=p.name.trim().charAt(0).toUpperCase()||'✦';
+}
+function renderProjectPicker(){
+ const root=el('projectsGrid');if(!root)return;
+ root.innerHTML=projects.map(p=>{
+   let saved=cleanProjectData(loadLocal(PROJECT_DATA_PREFIX+p.id,{}));
+   return `<article class="project-card" style="--project-color:${p.color}">
+    <button class="project-card-main" type="button" onclick="enterProject('${p.id}')"><span class="project-color-icon">✦</span><span><h3>${esc(p.name)}</h3><p>${saved.notebooks.length} notebooks · ${saved.tasks.length} task groups · ${saved.drawings.length} drawings</p></span></button>
+    <div class="project-card-actions"><button onclick="enterProject('${p.id}')">↗ Open project</button><button onclick="renameProject('${p.id}')">✎ Rename</button><button onclick="setProjectColor('${p.id}')">🎨 Color</button><button onclick="deleteProject('${p.id}')">Delete</button></div></article>`;
+ }).join('');
+ el('projectStayButton').classList.toggle('hidden',!activeProjectId);
+ el('projectPickerOverlay').querySelector('.project-picker-close').classList.toggle('hidden',!activeProjectId);
+}
+function openProjectPicker(startup=false){
+ if(activeProjectId){flushWorkspaceEditors();storeActiveProject();}
+ projectPickerIsStartup=startup||!activeProjectId;
+ el('welcomeOverlay').classList.add('hidden');
+ renderProjectPicker();el('projectPickerOverlay').classList.remove('hidden');
+ if(!projectPickerIsStartup)el('newProjectName').focus();
+}
+function closeProjectPicker(){
+ if(!activeProjectId)return;
+ el('projectPickerOverlay').classList.add('hidden');
+}
+function flushWorkspaceEditors(){
+ if(currentNotebook!==null&&notebooks[currentNotebook])saveNotes(true);
+ if(currentTask!==null&&tasks[currentTask])saveTaskPage(true);
+ if(currentQuickId!==null&&quickNoteOpen())flushQuickNote();
+ clearTimeout(notebookSaveTimer);clearTimeout(taskSaveTimer);clearTimeout(quickNoteTimer);
+}
+function enterProject(id){
+ const project=projects.find(p=>p.id===id);if(!project)return;
+ if(activeProjectId){flushWorkspaceEditors();storeActiveProject();}
+ const wasStartup=!activeProjectId;
+ activeProjectId=id;
+ if(drawReady){const c=el('drawCanvas');const ctx=c.getContext('2d');ctx.fillStyle='#fff';ctx.fillRect(0,0,c.width,c.height);drawingHistory=[];el('drawingTitle').value='My drawing';}
+ const data=cleanProjectData(loadLocal(PROJECT_DATA_PREFIX+id,{}));
+ notebooks=data.notebooks;goals=data.goals;tasks=data.tasks;events=data.events;quickNotes=data.quickNotes;
+ subjectData=data.subjectData;tutorChats=data.tutorChats;drawings=data.drawings;
+ tasks.forEach(normalizeTask);
+ currentNotebook=null;currentPage=0;currentTask=null;currentTaskPage=0;currentQuickId=null;
+ tutorActiveId=tutorChats[0]?.id||'';lastDrawingId=drawings.at(-1)?.id||null;
+ el('editor').classList.add('hidden');el('taskEditor').classList.add('hidden');el('quickNoteOverlay').classList.add('hidden');
+ el('projectPickerOverlay').classList.add('hidden');
+ displayProjectName();
+ renderAll();refreshChatGPTNotebooks();tutorRender();renderDrawingGallery();updateDrawingBookOptions();
+ showPage('dashboard');
+ if(wasStartup)showWelcomeMotivation();
+}
+function createProject(){
+ const name=el('newProjectName').value.trim();
+ if(!name)return notice('Enter a name for your project');
+ if(projects.length>=100)return notice('Maximum 100 projects per browser.');
+ const color=isHexColor(el('newProjectColor').value)?el('newProjectColor').value:DEFAULT_PROJECT_COLOR;
+ const id=projectId();projects.push({id,name:name.slice(0,75),color,createdAt:Date.now()});
+ if(!storeProjectIndex()){projects.pop();return;}
+ try{localStorage.setItem(PROJECT_DATA_PREFIX+id,JSON.stringify(cleanProjectData({})))}catch(e){projects.pop();storeProjectIndex();return notice('Not enough space to create a project')}
+ el('newProjectName').value='';enterProject(id);notice('New project created: '+name);
+}
+function renameProject(id){const p=projects.find(p=>p.id===id);if(!p)return;const name=prompt('Rename this project:',p.name);if(name===null)return;if(!name.trim())return notice('Project name cannot be empty');p.name=name.trim().slice(0,75);storeProjectIndex();displayProjectName();renderProjectPicker();}
+function setProjectColor(id){const p=projects.find(p=>p.id===id);if(!p)return;const value=prompt('Project color (hex, e.g. #9278fa):',p.color);if(value===null)return;if(!isHexColor(value))return notice('Use a 6-digit hex color like #9278fa');p.color=value;storeProjectIndex();displayProjectName();renderProjectPicker()}
+function deleteProject(id){const p=projects.find(p=>p.id===id);if(!p)return;if(projects.length<=1)return notice('Keep at least one project.');if(!confirm(`Delete project "${p.name}" and all of its notes, tasks and drawings? This cannot be undone.`))return;
+ const isActive=activeProjectId===id;
+ projects=projects.filter(p=>p.id!==id);storeProjectIndex();localStorage.removeItem(PROJECT_DATA_PREFIX+id);
+ if(isActive){activeProjectId=null;enterProject(projects[0].id);el('welcomeOverlay').classList.add('hidden');openProjectPicker()}
+ else renderProjectPicker();notice('Project deleted');
+}
+
+/* Notebook cover colors and renaming */
+function notebookColor(book){return isHexColor(book?.color)?book.color:DEFAULT_PROJECT_COLOR}
+const originalCreateNotebook=createNotebook;
+createNotebook=function(){const count=notebooks.length;originalCreateNotebook();if(notebooks.length>count){notebooks.at(-1).color=el('newBookColor').value;persistAll();renderAll();if(currentNotebook!==null)el('editBookColor').value=notebookColor(notebooks[currentNotebook]);}};
+function setNotebookColor(i,value){if(!notebooks[i]||!isHexColor(value))return;notebooks[i].color=value;persistAll();renderNotebooks();updateDashboard();if(currentNotebook===i)el('editBookColor').value=value;}
+function renameNotebook(i){const book=notebooks[i];if(!book)return;const value=prompt('Rename notebook:',book.name);if(value===null)return;if(!value.trim())return notice('Notebook name cannot be blank');book.name=value.trim().slice(0,100);persistAll();renderNotebooks();updateDashboard();if(currentNotebook===i)el('bookTitle').textContent=book.name;refreshChatGPTNotebooks()}
+// Replace card rendering, leave every other notebook control unchanged.
+const priorRenderNotebooks=renderNotebooks;
+renderNotebooks=function(){
+ priorRenderNotebooks();
+ el('notebookList').innerHTML=notebooks.length?notebooks.map((book,i)=>`<div class="notebook-tile" style="--book-color:${notebookColor(book)}"><div class="tile-cover">✦</div><h4>${esc(book.name)}</h4><small>${(book.pages||[]).filter(p=>typeof p==='string'&&p.trim()).length} of 450 pages used</small><div class="tile-actions"><button class="button button-secondary" onclick="openNotebook(${i})">Open</button><button class="button button-secondary" onclick="renameNotebook(${i})">Rename</button><input class="tile-color-picker" type="color" value="${notebookColor(book)}" onchange="setNotebookColor(${i},this.value)" aria-label="Color of ${esc(book.name)}"><button class="button button-danger" onclick="deleteNotebook(${i})">Delete</button></div></div>`).join(''):'<div class="empty-state">No notebooks yet. Create your first one above.</div>';
+};
+const priorUpdateDashboard=updateDashboard;
+updateDashboard=function(){priorUpdateDashboard();el('dashboardBooks')?.querySelectorAll('.notebook-row').forEach((btn,i)=>{const book=notebooks[notebooks.length-1-i];if(book){btn.style.setProperty('--book-color',notebookColor(book))}})};
+const priorLoadPage=loadPage;
+loadPage=function(){priorLoadPage();if(currentNotebook!==null){el('editBookColor').value=notebookColor(notebooks[currentNotebook]);renderNotebookMedia()}};
+
+/* IndexedDB stores images separately to avoid filling the text note storage. */
+function openMediaDB(){
+ if(!('indexedDB' in window))return Promise.reject(Error('Image storage is not available in this browser'));
+ if(mediaDatabasePromise)return mediaDatabasePromise;
+ mediaDatabasePromise=new Promise((resolve,reject)=>{
+   const request=indexedDB.open('nexus_notes_media_v1',1);
+   request.onupgradeneeded=()=>{const db=request.result;if(!db.objectStoreNames.contains('images'))db.createObjectStore('images',{keyPath:'id'})};
+   request.onsuccess=()=>resolve(request.result);
+   request.onerror=()=>reject(request.error||Error('Could not open image storage'));
+ });return mediaDatabasePromise;
+}
+async function imagePut(blob,id=projectId()){
+ const db=await openMediaDB();return new Promise((resolve,reject)=>{const tx=db.transaction('images','readwrite');tx.objectStore('images').put({id,blob});tx.oncomplete=()=>resolve(id);tx.onerror=()=>reject(tx.error)})
+}
+async function imageGet(id){
+ const db=await openMediaDB();return new Promise((resolve,reject)=>{const tx=db.transaction('images');const req=tx.objectStore('images').get(id);req.onsuccess=()=>resolve(req.result?.blob||null);req.onerror=()=>reject(req.error)})
+}
+async function imageGetAll(){const db=await openMediaDB();return new Promise((resolve,reject)=>{const tx=db.transaction('images');const req=tx.objectStore('images').getAll();req.onsuccess=()=>resolve(req.result||[]);req.onerror=()=>reject(req.error)})}
+function revokeUrls(urls){for(const url of urls)URL.revokeObjectURL(url);urls.length=0}
+async function imageToSizedBlob(blob){
+ if(!blob.type.startsWith('image/'))throw Error('Please choose an image file');
+ if(blob.size>25*1024*1024)throw Error('Image is too large (maximum 25 MB)');
+ const bitmap=await createImageBitmap(blob);
+ try{
+   let w=bitmap.width,h=bitmap.height;
+   const ratio=Math.min(1,1900/Math.max(w,h));w=Math.max(1,Math.round(w*ratio));h=Math.max(1,Math.round(h*ratio));
+   const canvas=document.createElement('canvas');canvas.width=w;canvas.height=h;
+   const ctx=canvas.getContext('2d');ctx.fillStyle='#fff';ctx.fillRect(0,0,w,h);ctx.drawImage(bitmap,0,0,w,h);
+   const result=await new Promise(resolve=>canvas.toBlob(resolve,'image/jpeg',.84));
+   if(!result)throw Error('Could not process image');return result;
+ }finally{bitmap.close()}
+}
+function pageMedia(book,page){if(!book.media||typeof book.media!=='object')book.media={};if(!Array.isArray(book.media[page]))book.media[page]=[];return book.media[page]}
+async function addNotebookImage(blob,name='Pasted image'){
+ if(currentNotebook===null||!notebooks[currentNotebook])return notice('Open a notebook page first');
+ const project=activeProjectId,book=notebooks[currentNotebook],page=currentPage;
+ try{
+   const sized=await imageToSizedBlob(blob),id=await imagePut(sized);
+   if(activeProjectId!==project)return;
+   pageMedia(book,page).push({id,name:String(name).slice(0,95)||'Image'});
+   persistAll();renderNotebookMedia();notice('Image added to notebook page '+(page+1));
+ }catch(e){notice(e.message||'Could not save image')}
+}
+async function uploadNotebookImages(event){const files=Array.from(event.target.files||[]);event.target.value='';for(const file of files)await addNotebookImage(file,file.name)}
+async function pasteNotebookImage(){
+ if(!navigator.clipboard?.read){notice('Paste with Ctrl + V while typing in the notebook, or use Upload image.');return;}
+ try{const items=await navigator.clipboard.read();for(const item of items){const type=item.types.find(t=>t.startsWith('image/'));if(type){await addNotebookImage(await item.getType(type),'Pasted image');return}}notice('No image found on the clipboard')}catch(e){notice('Clipboard access was blocked. Click the notes box and press Ctrl + V, or upload a picture.')}
+}
+el('noteText').addEventListener('paste',event=>{
+ const item=Array.from(event.clipboardData?.items||[]).find(x=>x.type.startsWith('image/'));
+ if(!item)return;event.preventDefault();const file=item.getAsFile();if(file)addNotebookImage(file,'Pasted image');
+});
+async function renderNotebookMedia(){
+ const version=++mediaGridVersion;revokeUrls(noteMediaUrls);
+ const grid=el('notebookMediaGrid');if(!grid)return;
+ const book=currentNotebook===null?null:notebooks[currentNotebook];
+ if(!book){grid.innerHTML='';return}
+ const references=pageMedia(book,currentPage).slice();
+ if(!references.length){grid.innerHTML='<div class="muted" style="font-size:12px">No images on this page yet. Paste one or upload a picture to get started.</div>';return;}
+ grid.innerHTML='<div class="muted">Loading images…</div>';
+ const cards=[];
+ for(const ref of references){
+   const blob=await imageGet(ref.id).catch(()=>null);
+   if(version!==mediaGridVersion)return;
+   let src='';if(blob){src=URL.createObjectURL(blob);noteMediaUrls.push(src)}
+   cards.push(`<figure class="media-thumb">${src?`<img src="${src}" alt="${esc(ref.name)}">`:'<p class="muted">Image unavailable</p>'}<figcaption title="${esc(ref.name)}">${esc(ref.name)}</figcaption><button type="button" onclick="removeNotebookMedia('${ref.id}')">Remove from page</button></figure>`);
+ }
+ grid.innerHTML=cards.join('');
+}
+function removeNotebookMedia(id){if(currentNotebook===null)return;if(!confirm('Remove this image from this notebook page?'))return;const list=pageMedia(notebooks[currentNotebook],currentPage);notebooks[currentNotebook].media[currentPage]=list.filter(ref=>ref.id!==id);persistAll();renderNotebookMedia()}
+
+/* Drawing studio */
+function setupDrawingCanvas(){
+ if(drawReady)return;
+ drawReady=true;const canvas=el('drawCanvas'),ctx=canvas.getContext('2d',{willReadFrequently:true});
+ ctx.fillStyle='#fff';ctx.fillRect(0,0,canvas.width,canvas.height);
+ const position=e=>{const rect=canvas.getBoundingClientRect();return {x:(e.clientX-rect.left)*canvas.width/rect.width,y:(e.clientY-rect.top)*canvas.height/rect.height}};
+ canvas.addEventListener('pointerdown',e=>{
+  if(e.button!==0&&e.pointerType==='mouse')return;
+  e.preventDefault();canvas.setPointerCapture(e.pointerId);drawPointer=e.pointerId;drawingInProgress=true;
+  drawingHistory.push(ctx.getImageData(0,0,canvas.width,canvas.height));if(drawingHistory.length>16)drawingHistory.shift();
+  const pos=position(e);ctx.lineWidth=Number(el('drawBrush').value);ctx.strokeStyle=drawErase?'#fff':el('drawColor').value;ctx.fillStyle=ctx.strokeStyle;ctx.lineCap='round';ctx.lineJoin='round';ctx.beginPath();ctx.arc(pos.x,pos.y,ctx.lineWidth/2,0,Math.PI*2);ctx.fill();ctx.beginPath();ctx.moveTo(pos.x,pos.y);
+ });
+ canvas.addEventListener('pointermove',e=>{if(!drawingInProgress||drawPointer!==e.pointerId)return;e.preventDefault();const pos=position(e);ctx.lineTo(pos.x,pos.y);ctx.stroke();ctx.beginPath();ctx.moveTo(pos.x,pos.y)});
+ const stop=e=>{if(drawPointer===e.pointerId){drawingInProgress=false;drawPointer=null;ctx.beginPath()}};
+ canvas.addEventListener('pointerup',stop);canvas.addEventListener('pointercancel',stop);canvas.addEventListener('lostpointercapture',()=>{drawingInProgress=false;drawPointer=null});
+}
+function toggleDrawEraser(){drawErase=!drawErase;el('drawEraser').classList.toggle('is-on',drawErase);el('drawEraser').textContent=drawErase?'✎ Pen':'⌫ Eraser'}
+function undoDrawing(){setupDrawingCanvas();const previous=drawingHistory.pop();if(!previous)return notice('Nothing to undo');el('drawCanvas').getContext('2d').putImageData(previous,0,0)}
+function clearDrawing(){setupDrawingCanvas();if(!confirm('Clear the drawing canvas? Saved drawings will be kept.'))return;const c=el('drawCanvas'),ctx=c.getContext('2d');drawingHistory.push(ctx.getImageData(0,0,c.width,c.height));if(drawingHistory.length>16)drawingHistory.shift();ctx.fillStyle='#fff';ctx.fillRect(0,0,c.width,c.height)}
+function drawingBlob(){setupDrawingCanvas();return new Promise(resolve=>el('drawCanvas').toBlob(resolve,'image/png'))}
+async function saveDrawing(){
+ const project=activeProjectId;try{
+ const blob=await drawingBlob();if(!blob)throw Error('Could not save drawing');const id=await imagePut(blob);
+ if(project!==activeProjectId)return;
+ const name=el('drawingTitle').value.trim().slice(0,95)||'Untitled drawing';drawings.push({id,name,date:Date.now()});lastDrawingId=id;
+ persistAll();renderDrawingGallery();notice('Drawing saved! Now add it to a notebook.');
+ }catch(e){notice(e.message||'Could not save drawing')}
+}
+function downloadDrawing(){setupDrawingCanvas();const a=document.createElement('a');a.href=el('drawCanvas').toDataURL('image/png');a.download=(el('drawingTitle').value.trim().replace(/[^a-z0-9-_ ]/gi,'').slice(0,50)||'nexus-drawing')+'.png';a.click()}
+function updateDrawingBookOptions(){
+ const selector=el('drawingBookSelect');if(!selector)return;
+ const chosen=selector.value;
+ selector.innerHTML=notebooks.length?notebooks.map((b,i)=>`<option value="${i}">${esc(b.name)}</option>`).join(''):'<option value="">Create a notebook first</option>';
+ if(chosen&&Number(chosen)<notebooks.length)selector.value=chosen;
+ else if(currentNotebook!==null)selector.value=String(currentNotebook);
+ if(currentNotebook!==null)el('drawingPageNumber').value=currentPage+1;
+ updateDrawingAttachState();
+}
+function updateDrawingAttachState(){const disabled=!notebooks.length;el('drawingBookSelect').disabled=disabled;}
+function attachLastDrawing(){if(!lastDrawingId)return notice('Save a drawing first');attachDrawingToNotebook(lastDrawingId)}
+function attachDrawingToNotebook(id){
+ const i=Number(el('drawingBookSelect').value),page=Number(el('drawingPageNumber').value)-1;
+ if(!Number.isInteger(i)||!notebooks[i])return notice('Create or choose a notebook first');
+ if(!Number.isInteger(page)||page<0||page>=450)return notice('Page number must be from 1 to 450');
+ const drawing=drawings.find(d=>d.id===id);if(!drawing)return notice('Could not find the drawing');
+ pageMedia(notebooks[i],page).push({id,name:drawing.name});persistAll();notice(`Added drawing to "${notebooks[i].name}", page ${page+1}`);
+}
+async function renderDrawingGallery(){
+ const version=++drawGalleryVersion;revokeUrls(galleryUrls);const root=el('drawingGallery');if(!root)return;
+ el('drawingCount').textContent=`${drawings.length} drawing${drawings.length===1?'':'s'}`;
+ if(!drawings.length){root.innerHTML='<div class="draw-empty">No saved drawings yet. Sketch something on the canvas and click Save drawing!</div>';return}
+ root.innerHTML='<div class="muted">Loading artwork…</div>';
+ const cards=[];for(const d of [...drawings].reverse()){
+  const blob=await imageGet(d.id).catch(()=>null);if(version!==drawGalleryVersion)return;
+  const src=blob?URL.createObjectURL(blob):'';if(src)galleryUrls.push(src);
+  cards.push(`<div class="draw-gallery-card">${src?`<img src="${src}" alt="${esc(d.name)}">`:'<p class="muted">Image unavailable</p>'}<b title="${esc(d.name)}">${esc(d.name)}</b><div class="inline-form"><button class="button button-secondary" onclick="attachDrawingToNotebook('${d.id}')">＋ Notebook</button><button class="button button-danger" onclick="removeDrawingFromGallery('${d.id}')">Remove</button></div></div>`)
+ }root.innerHTML=cards.join('');
+}
+function removeDrawingFromGallery(id){if(!confirm('Remove drawing from the gallery? Copies attached to notebook pages will remain.'))return;drawings=drawings.filter(d=>d.id!==id);if(lastDrawingId===id)lastDrawingId=drawings.at(-1)?.id||null;persistAll();renderDrawingGallery()}
+pageNames.drawings='Drawing studio';
+const priorShowPage=showPage;
+showPage=function(page){priorShowPage(page);if(page==='drawings'){setupDrawingCanvas();updateDrawingBookOptions();renderDrawingGallery()}};
+const priorOpenNotebook=openNotebook;
+openNotebook=function(i,page=0){priorOpenNotebook(i,page);updateDrawingBookOptions()};
+
+/* Accessibility preferences are global to the browser, not tied to one project. */
+function applyPreferences(){
+ if(!preferences||typeof preferences!=='object')preferences={};
+ const size=['90','100','115','130','150'].includes(String(preferences.size))?Number(preferences.size):100;
+ document.body.style.zoom=(size/100).toString();
+ const density=['comfortable','compact','roomy'].includes(preferences.density)?preferences.density:'comfortable';
+ document.documentElement.dataset.density=density;
+ document.documentElement.dataset.highContrast=String(Boolean(preferences.contrast));
+ document.documentElement.dataset.reducedMotion=String(Boolean(preferences.reducedMotion));
+ document.documentElement.dataset.readable=String(Boolean(preferences.readableFont));
+ const accent=isHexColor(preferences.accent)?preferences.accent:DEFAULT_PROJECT_COLOR;
+ document.documentElement.style.setProperty('--purple',accent);document.documentElement.style.setProperty('--accent',accent);
+ el('prefSize').value=String(size);el('prefDensity').value=density;el('prefAccent').value=accent;
+ el('prefContrast').checked=!!preferences.contrast;el('prefMotion').checked=!!preferences.reducedMotion;el('prefReadable').checked=!!preferences.readableFont;
+}
+function updatePreference(name,value){preferences[name]=value;try{localStorage.setItem(PREFS_KEY,JSON.stringify(preferences))}catch(e){}applyPreferences()}
+function resetPreferences(){preferences={size:'100',density:'comfortable',accent:DEFAULT_PROJECT_COLOR,contrast:false,reducedMotion:false,readableFont:false};localStorage.setItem(PREFS_KEY,JSON.stringify(preferences));applyPreferences();notice('Appearance reset')}
+
+/* Full v5 backups: every project plus images, with legacy v3/v4 restore support. */
+function blobAsDataUrl(blob){return new Promise((resolve,reject)=>{const reader=new FileReader();reader.onload=()=>resolve(reader.result);reader.onerror=()=>reject(Error('Could not read image'));reader.readAsDataURL(blob)})}
+async function downloadProjectBackup(){
+ flushWorkspaceEditors();storeActiveProject();
+ try{
+  const media=await imageGetAll().catch(()=>[]);
+  const imageRecords=[];
+  for(const rec of media)imageRecords.push({id:rec.id,data:await blobAsDataUrl(rec.blob)});
+  const allProjectData=Object.fromEntries(projects.map(p=>[p.id,cleanProjectData(loadLocal(PROJECT_DATA_PREFIX+p.id,{}))]));
+  const backup={version:5,exportedAt:new Date().toISOString(),projects,projectData:allProjectData,images:imageRecords,profileName,preferences,theme:document.documentElement.dataset.theme};
+  const url=URL.createObjectURL(new Blob([JSON.stringify(backup)],{type:'application/json'}));
+  const a=document.createElement('a');a.href=url;a.download=`nexus-notes-all-projects-${todayKey()}.json`;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),3000);
+  notice('All projects and images backed up');
+ }catch(e){notice('Backup failed: '+e.message)}
+}
+exportBackup=downloadProjectBackup;
+async function importAllProjectBackup(event){
+ const file=event.target.files?.[0];if(!file)return;
+ try{
+  if(file.size>300*1024*1024)throw Error('Backup file is too large');
+  const parsed=JSON.parse(await file.text());
+  if(parsed.version>=5&&Array.isArray(parsed.projects)&&parsed.projectData){
+    if(!confirm('Restore all projects? This replaces the projects currently stored on this browser. Download a backup first.'))return;
+    const imported=parsed.projects.filter(p=>p&&typeof p.id==='string'&&typeof p.name==='string');
+    if(!imported.length)throw Error('Backup has no projects');
+    // Restore images before committing project data.
+    for(const row of parsed.images||[]){if(typeof row.id==='string'&&typeof row.data==='string'&&/^data:image\//.test(row.data)){const blob=await (await fetch(row.data)).blob();await imagePut(blob,row.id)}}
+    for(const p of imported){localStorage.setItem(PROJECT_DATA_PREFIX+p.id,JSON.stringify(cleanProjectData(parsed.projectData[p.id])))}
+    projects=imported;storeProjectIndex();profileName=String(parsed.profileName||'');localStorage.setItem('nn_profile_name',profileName);
+    if(parsed.preferences&&typeof parsed.preferences==='object'){preferences=parsed.preferences;localStorage.setItem(PREFS_KEY,JSON.stringify(preferences));applyPreferences()}
+    if(parsed.theme)setTheme(parsed.theme);
+    activeProjectId=null;renderProjectPicker();openProjectPicker(true);updateGreeting();notice('Backup restored — choose a project');
+  }else if(Array.isArray(parsed.notebooks)&&Array.isArray(parsed.goals)&&Array.isArray(parsed.tasks)&&Array.isArray(parsed.events)){
+    if(!confirm('Import this older backup into the current project? This will replace the current project\'s notes, tasks, events and goals.'))return;
+    notebooks=parsed.notebooks;goals=parsed.goals;tasks=parsed.tasks;events=parsed.events;
+    quickNotes=Array.isArray(parsed.quickNotes)?parsed.quickNotes:[];
+    subjectData=parsed.subjectData&&typeof parsed.subjectData==='object'?parsed.subjectData:{};
+    tasks.forEach(normalizeTask);currentNotebook=null;currentTask=null;
+    el('editor').classList.add('hidden');el('taskEditor').classList.add('hidden');storeActiveProject();renderAll();notice('Older backup imported into this project');
+  }else throw Error('Unrecognized backup format');
+ }catch(e){notice('Could not import: '+e.message)}finally{event.target.value=''}
+}
+importBackupFile=importAllProjectBackup;
+
+// Prevent Q from opening notes over the project chooser.
+document.addEventListener('keydown',e=>{
+ if(!el('projectPickerOverlay').classList.contains('hidden')&&e.key.toLowerCase()==='q'&&!['INPUT','TEXTAREA'].includes(document.activeElement?.tagName)){e.stopImmediatePropagation();e.preventDefault()}
+},true);
+// Enter creates a project when the new-project-name field is focused.
+el('newProjectName').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();createProject()}});
+applyPreferences();
+initProjects();
 
 </script>
 </body>
