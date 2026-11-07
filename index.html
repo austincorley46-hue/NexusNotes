@@ -139,6 +139,55 @@ html[data-readable=true] body,html[data-readable=true] button,html[data-readable
 @media(max-width:620px){.project-picker{padding:12px}.projects-grid{grid-template-columns:1fr}.project-picker-panel{max-height:none;padding:12px}.project-new-controls{width:100%}.project-new-controls input:not([type]){flex:1;min-width:140px}.project-bottom{flex-wrap:wrap}.preference-grid{grid-template-columns:1fr}.project-shortcut span{display:none}.draw-toolbar{gap:7px}.draw-pad{padding:10px}.draw-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}.notebook-media{padding:12px}}
 
 </style>
+<style>/* Private account UI, same visual language as Nexus Notes */
+
+
+
+.nn-account-link{display:inline-flex;gap:9px;align-items:center;padding:9px 13px;border:1px solid var(--line-strong);border-radius:12px;background:var(--surface-2);color:var(--text);cursor:pointer;font-weight:700;white-space:nowrap}
+.nn-account-link .nn-avatar{display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:linear-gradient(145deg,#8464ec,#648fff);color:white}
+.nn-account-link small{font-weight:500;color:var(--muted);max-width:160px;overflow:hidden;text-overflow:ellipsis}
+.nn-settings-grid{display:grid;gap:16px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.nn-setting-card{border:1px solid var(--line);border-radius:13px;background:var(--surface-2);padding:16px;display:flex;flex-direction:column;gap:8px}
+.nn-setting-card label{font-size:13px;color:var(--soft);font-weight:650}
+.nn-setting-card input,.nn-setting-card select{width:100%;background:var(--surface);border:1px solid var(--line-strong);color:var(--text);border-radius:9px;padding:10px}
+.nn-setting-card input[type=range]{accent-color:var(--accent);padding:7px}
+.nn-settings-check{display:flex;gap:10px;align-items:flex-start;padding:8px 0;font-weight:550}
+.nn-settings-check input{margin-top:5px;accent-color:var(--accent)}
+.nn-setting-hint{color:var(--muted);font-size:13px;line-height:1.55}
+.nn-account-status{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:12px 0 14px}
+.nn-account-status span{font-size:13px;color:var(--soft)}
+.nn-styled-button{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:10px 14px;border:1px solid var(--line-strong);border-radius:10px;color:var(--text);background:var(--surface-2);cursor:pointer;font-weight:700}
+.nn-styled-button.primary{border-color:#9777ff;color:white;background:linear-gradient(120deg,#805fe0,#647cf2)}
+.nn-styled-button:disabled{opacity:.55;cursor:not-allowed}
+.nn-auth-screen{position:fixed;inset:0;z-index:220;display:flex;align-items:center;justify-content:center;padding:18px;background:rgba(5,9,22,.91);backdrop-filter:blur(14px);overflow-y:auto}
+.nn-auth-card{width:min(450px,100%);padding:28px;background:var(--surface);border-radius:23px;border:1px solid rgba(153,142,245,.29);box-shadow:0 35px 110px #0009;color:var(--text)}
+.nn-auth-logo{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.nn-auth-mark{width:54px;height:54px;display:grid;place-items:center;border-radius:16px;background:linear-gradient(140deg,#8266fa,#568cff);font-size:30px;font-weight:900;color:white}
+.nn-auth-logo strong{font-size:21px}.nn-auth-logo small{display:block;color:var(--muted)}
+.nn-auth-card h2{margin:8px 0 6px;font-size:26px;letter-spacing:-.03em}
+.nn-auth-card p{margin:0 0 16px;color:var(--soft);font-size:14px;line-height:1.6}
+.nn-auth-form{display:grid;gap:12px}.nn-auth-form label{display:grid;gap:6px;font-weight:650;font-size:13px}
+.nn-auth-form input,.nn-auth-form select{width:100%;padding:13px 12px;border:1px solid var(--line-strong);border-radius:10px;color:var(--text);background:var(--surface-2);color-scheme:inherit}
+.nn-auth-form .nn-styled-button{min-height:45px}
+.nn-auth-row{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:12px}
+.nn-auth-row button{background:none;border:none;color:#b7a8ff;text-decoration:underline;cursor:pointer;padding:8px}
+.nn-auth-error{min-height:1.5em;color:#ffa6ae;font-size:13px;margin:3px 0!important}
+.nn-auth-note{border:1px solid var(--line-strong);border-radius:12px;padding:12px;background:var(--surface-2);font-size:12px;color:var(--soft);margin-top:12px}
+.nn-birth-screen{position:fixed;inset:0;z-index:210;display:flex;align-items:center;justify-content:center;background:rgba(8,8,28,.83);padding:20px;backdrop-filter:blur(9px)}
+.nn-birth-card{text-align:center;max-width:460px;padding:32px;background:var(--surface);color:var(--text);border:2px solid #a28afb;border-radius:25px;box-shadow:0 30px 90px #0008}
+.nn-birth-card h2{font-size:32px;margin:8px 0}.nn-birth-card p{color:var(--soft)}
+.nn-birth-emojis{font-size:58px;animation:nn-bob 2s ease-in-out infinite}
+@keyframes nn-bob{50%{transform:translateY(-8px) rotate(6deg)}}
+.nn-setting-card .nn-settings-check input[type=checkbox]{width:18px;min-width:18px;height:18px;min-height:18px;padding:0;flex:0 0 18px;margin:2px 0 0}.nn-settings-check{font-size:14px!important;line-height:1.35}
+html.nn-contrast{--bg:#050505;--sidebar:#090909;--surface:#111;--surface-2:#1d1d1d;--surface-3:#222;--text:#fff;--muted:#d7d7d7;--soft:#eee;--line:rgba(255,255,255,.28);--line-strong:rgba(255,255,255,.5);--purple:#b9a6ff;--accent:#b9a6ff}
+html.nn-large-controls button,html.nn-large-controls select,html.nn-large-controls input,html.nn-large-controls textarea{min-height:48px}
+html.nn-readable{font-family:Arial,Verdana,sans-serif}html.nn-readable body{font-family:Arial,Verdana,sans-serif;letter-spacing:.025em;line-height:1.7}
+html.nn-reduced-motion *,html.nn-reduced-motion *::before,html.nn-reduced-motion *::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+.nn-student-chip{border:1px solid var(--line-strong);padding:5px 10px;background:var(--surface-2);color:var(--soft);border-radius:999px;display:inline-flex;align-items:center;font-size:12px;margin:8px 0}
+.nn-security-note{font-size:12px;color:var(--muted);margin-top:12px}
+@media(max-width:700px){.nn-settings-grid{grid-template-columns:1fr}.nn-account-link small{display:none}.nn-auth-card{padding:20px}.nn-account-link{padding:8px}}
+
+</style>
 </head>
 <body>
   <svg class="svg-sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -179,6 +228,7 @@ html[data-readable=true] body,html[data-readable=true] button,html[data-readable
         <div class="nav-label nav-group-space">PREFERENCES</div>
         <button class="nav-link" data-page="settings" onclick="showPage('settings')"><svg><use href="#ic-settings"/></svg><span>Settings & backup</span></button>
       </nav>
+      <button type="button" class="nn-account-link" id="nnAccountSidebar" onclick="nnOpenAccount()">🔒 <span id="nnAccountLabel">Sign in / Create account</span></button>
       <div class="sidebar-bottom"><div class="sidebar-tip"><div class="tip-icon">✧</div><b>A little progress adds up.</b><p>Keep your ideas, goals and plans together.</p></div><div class="sidebar-footer"><span class="online-dot"></span> Stored on this device <span>v3.0</span></div></div>
     </aside>
 
@@ -330,8 +380,19 @@ html[data-readable=true] body,html[data-readable=true] button,html[data-readable
   <label class="pref-check"><input id="prefMotion" type="checkbox" onchange="updatePreference('reducedMotion',this.checked)"> Reduce animations</label>
   <label class="pref-check"><input id="prefReadable" type="checkbox" onchange="updatePreference('readableFont',this.checked)"> Easy-to-read font</label>
   </div><button class="button button-quiet" onclick="resetPreferences()">Reset appearance settings</button></div>
-  <div class="panel form-panel"><h3>Project management</h3><p class="muted">Create separate spaces for subjects, school, or personal plans. Each project has its own notebooks, drawings, goals, tasks, and calendar.</p><div class="inline-form"><button class="button button-secondary" onclick="openProjectPicker()">▦ Switch or rename projects</button><button class="button button-secondary" onclick="exportBackup()">↓ Back up all projects</button></div></div>
-  <div class="panel form-panel"><h3>Backup & restore</h3><p class="muted">Your projects and notes are stored on this device only, not synced to other devices. Export a complete backup, including images, before clearing browser data.</p><div class="inline-form"><button class="button button-secondary" onclick="exportBackup()">↓ Download backup (.json)</button><label class="button button-secondary file-label">↑ Import backup <input id="importBackup" type="file" accept=".json,application/json" onchange="importBackupFile(event)" hidden></label></div><p class="muted">A full backup includes all projects, settings, drawings and images. Importing a full backup replaces the current projects on this device.</p></div></section>
+  <div class="panel form-panel" id="nnAccountSettings"><h3>Account & cloud backup</h3>
+  <p class="muted">Sign in with email and a password to save your projects, notebooks, tasks, drawings, and preferences to your account. You can also keep using this browser without an account.</p>
+  <div class="nn-account-status"><span id="nnSettingsAccountState">Guest · saved on this device</span><button class="nn-styled-button primary" type="button" id="nnAccountPrimary" onclick="nnOpenAccount()">Sign in / Create account</button><button class="nn-styled-button hidden" type="button" id="nnSignOutButton" onclick="nnRequestSignOut()">Sign out</button></div>
+  <p class="nn-setting-hint" id="nnCloudStatus" role="status">Cloud sync needs the free Firebase setup before it can be used. Your existing notes remain available on this browser.</p>
+</div>
+<div class="panel form-panel"><h3>School & birthday</h3><p class="muted">Your grade helps personalize study tools and tutoring. For birthday wishes we only save the month and day, not your birth year.</p>
+  <div class="nn-settings-grid"><div class="nn-setting-card"><label for="nnSettingsGrade">Your current grade</label><select id="nnSettingsGrade" onchange="nnSaveLearnerProfile()"><option value="">Select grade</option><option value="Kindergarten">Kindergarten</option><option value="Grade 1">Grade 1</option><option value="Grade 2">Grade 2</option><option value="Grade 3">Grade 3</option><option value="Grade 4">Grade 4</option><option value="Grade 5">Grade 5</option><option value="Grade 6">Grade 6</option><option value="Grade 7">Grade 7</option><option value="Grade 8">Grade 8</option><option value="Grade 9">Grade 9</option><option value="Grade 10">Grade 10</option><option value="Grade 11">Grade 11</option><option value="Grade 12">Grade 12</option><option value="College / university">College / university</option><option value="Adult learner">Adult learner</option><option value="Other">Other</option></select></div>
+  <div class="nn-setting-card"><label>Birthday</label><div style="display:flex;gap:8px"><select id="nnSettingsBirthMonth" aria-label="Birthday month" onchange="nnSaveLearnerProfile()"><option value="">Month</option><option value="01">January</option><option value="02">February</option><option value="03">March</option><option value="04">April</option><option value="05">May</option><option value="06">June</option><option value="07">July</option><option value="08">August</option><option value="09">September</option><option value="10">October</option><option value="11">November</option><option value="12">December</option></select><select id="nnSettingsBirthDay" aria-label="Birthday day" onchange="nnSaveLearnerProfile()"><option value="">Day</option><option value="01">1</option><option value="02">2</option><option value="03">3</option><option value="04">4</option><option value="05">5</option><option value="06">6</option><option value="07">7</option><option value="08">8</option><option value="09">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option></select></div></div></div>
+  <p class="nn-setting-hint">You can update these anytime. Only share information you're comfortable sharing.</p>
+</div>
+
+<div class="panel form-panel"><h3>Project management</h3><p class="muted">Create separate spaces for subjects, school, or personal plans. Each project has its own notebooks, drawings, goals, tasks, and calendar.</p><div class="inline-form"><button class="button button-secondary" onclick="openProjectPicker()">▦ Switch or rename projects</button><button class="button button-secondary" onclick="exportBackup()">↓ Back up all projects</button></div></div>
+  <div class="panel form-panel"><h3>Backup & restore</h3><p class="muted">Guest projects are saved only on this device. Signed-in projects can sync through Firebase, including their attached images. Always keep an exported backup.</p><div class="inline-form"><button class="button button-secondary" onclick="exportBackup()">↓ Download backup (.json)</button><label class="button button-secondary file-label">↑ Import backup <input id="importBackup" type="file" accept=".json,application/json" onchange="importBackupFile(event)" hidden></label></div><p class="muted">A full backup includes all projects, settings, drawings and images. Importing a full backup replaces the current projects on this device.</p></div></section>
       </main>
     </div>
   </div>
@@ -339,7 +400,7 @@ html[data-readable=true] body,html[data-readable=true] button,html[data-readable
   <div class="project-picker-panel"><div class="project-brand">✦ NEXUS<span>NOTES</span></div><div class="project-topline">YOUR SPACE, YOUR WAY</div><div class="project-head"><div><h1 id="projectPickerTitle">Choose your project</h1><p>Pick up where you left off, or start a new space for something different.</p></div><button class="project-picker-close" type="button" onclick="closeProjectPicker()" aria-label="Close project picker">×</button></div>
   <div id="projectsGrid" class="projects-grid"></div>
   <div class="project-new panel"><div><h3>＋ Create a new project</h3><p>Give your new workspace any name you like.</p></div><div class="project-new-controls"><input id="newProjectName" maxlength="75" placeholder="e.g. School, My Business, Science" aria-label="New project name"><input id="newProjectColor" type="color" value="#9377f5" aria-label="Project color"><button class="button button-primary" onclick="createProject()">Create project →</button></div></div>
-  <div class="project-bottom"><span>🔒 Saved on this browser • No account or payment needed</span><button class="button button-quiet" onclick="closeProjectPicker()" id="projectStayButton">Stay in current project</button></div></div>
+  <div class="project-bottom"><span>🔒 Guest projects stay on this browser • Accounts use private cloud saving</span><button class="button button-quiet" onclick="closeProjectPicker()" id="projectStayButton">Stay in current project</button></div></div>
 </div>
   <div class="quick-note-overlay hidden" id="quickNoteOverlay" onclick="if(event.target===this)closeQuickNote()">
     <aside class="quick-note-drawer" role="dialog" aria-modal="true" aria-labelledby="quickNoteHeading">
@@ -348,7 +409,7 @@ html[data-readable=true] body,html[data-readable=true] button,html[data-readable
       <div class="quick-note-list" id="quickNoteList"></div>
       <div class="quick-note-editor"><label for="quickNoteTitle">Title</label><input id="quickNoteTitle" placeholder="Give this thought a name…" maxlength="110" oninput="quickNoteChanged()"><label for="quickNoteBody">Your note</label><textarea id="quickNoteBody" placeholder="Write anything here. It saves automatically…" oninput="quickNoteChanged()"></textarea></div>
       <footer class="quick-note-footer"><button class="button button-secondary" onclick="sendQuickNoteToNotebook()">↗ Save as notebook</button><button class="button button-danger" onclick="deleteCurrentQuickNote()">Delete note</button></footer>
-      <p class="quick-note-footnote">Shortcut: Q · Escape to close. Quick Notes are stored only in this browser.</p>
+      <p class="quick-note-footnote">Shortcut: Q · Escape to close. Guest notes stay local; account notes can sync.</p>
     </aside>
   </div>
   <div class="overlay hidden" id="commandOverlay" role="presentation" onclick="if(event.target===this)closeCommand()"><div class="command-panel" role="dialog" aria-modal="true" aria-label="Quick search"><div class="command-input"><svg><use href="#ic-search"/></svg><input id="commandInput" placeholder="Search notes, tasks, goals or navigate..." oninput="universalSearch()" autocomplete="off"><kbd>ESC</kbd></div><div id="searchResults" class="command-results"></div><div class="command-bottom"><span>Search across your saved workspace</span><span>↵ to open first result</span></div></div></div>
@@ -367,7 +428,35 @@ html[data-readable=true] body,html[data-readable=true] button,html[data-readable
     <p class="welcome-footnote">You’ll get a fresh welcome each time you open Nexus Notes.</p>
   </div>
 </div>
+<div class="nn-auth-screen hidden" id="nnAuthScreen" role="dialog" aria-modal="true" aria-labelledby="nnAuthHeading">
+  <div class="nn-auth-card">
+    <div class="nn-auth-logo"><div class="nn-auth-mark">N</div><div><strong>Nexus Notes</strong><small>Your workspace, your way</small></div></div>
+    <h2 id="nnAuthHeading">Welcome back</h2><p id="nnAuthSubheading">Sign in to your personal study space.</p>
+    <form class="nn-auth-form" onsubmit="nnSubmitAuth(event)">
+      <label>Email address<input type="email" id="nnAuthEmail" autocomplete="email" required placeholder="you@example.com"></label>
+      <label>Password<input type="password" id="nnAuthPassword" autocomplete="current-password" required minlength="6" placeholder="Your Nexus Notes password"></label>
+      <div id="nnSignupFields" class="hidden" style="display:grid;gap:12px">
+        <label>Your grade<select id="nnSignupGrade"><option value="">Select grade</option><option value="Kindergarten">Kindergarten</option><option value="Grade 1">Grade 1</option><option value="Grade 2">Grade 2</option><option value="Grade 3">Grade 3</option><option value="Grade 4">Grade 4</option><option value="Grade 5">Grade 5</option><option value="Grade 6">Grade 6</option><option value="Grade 7">Grade 7</option><option value="Grade 8">Grade 8</option><option value="Grade 9">Grade 9</option><option value="Grade 10">Grade 10</option><option value="Grade 11">Grade 11</option><option value="Grade 12">Grade 12</option><option value="College / university">College / university</option><option value="Adult learner">Adult learner</option><option value="Other">Other</option></select></label>
+        <label>Birthday (month and day only)</label><div style="display:flex;gap:10px"><select id="nnSignupBirthMonth" aria-label="Birthday month"><option value="">Month</option><option value="01">January</option><option value="02">February</option><option value="03">March</option><option value="04">April</option><option value="05">May</option><option value="06">June</option><option value="07">July</option><option value="08">August</option><option value="09">September</option><option value="10">October</option><option value="11">November</option><option value="12">December</option></select><select id="nnSignupBirthDay" aria-label="Birthday day"><option value="">Day</option><option value="01">1</option><option value="02">2</option><option value="03">3</option><option value="04">4</option><option value="05">5</option><option value="06">6</option><option value="07">7</option><option value="08">8</option><option value="09">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option></select></div>
+        <label class="nn-settings-check"><input type="checkbox" id="nnImportGuest"> Bring my current guest projects into this new account</label>
+      </div>
+      <p class="nn-auth-error" id="nnAuthError" role="alert"></p>
+      <button id="nnAuthSubmit" class="nn-styled-button primary" type="submit">Sign in</button>
+    </form>
+    <div class="nn-auth-row"><button type="button" id="nnAuthToggle" onclick="nnToggleAuthMode()">Create an account</button><button type="button" onclick="nnForgotPassword()">Forgot password?</button></div>
+    <div class="nn-auth-row"><button type="button" class="nn-styled-button" id="nnContinueGuest" onclick="nnContinueGuestMode()">Continue on this device (no account)</button></div>
+    <div class="nn-auth-note" id="nnAuthConfigNote">Sign in to sync your personal projects. Guest mode is always available.</div>
+    <div class="nn-security-note">Use a unique password for Nexus Notes. Passwords are managed by the authentication provider, never stored in this page.</div>
+  </div>
+</div>
+<div class="nn-birth-screen hidden" id="nnBirthdayScreen" role="dialog" aria-modal="true" aria-labelledby="nnBirthdayTitle">
+  <div class="nn-birth-card"><div class="nn-birth-emojis" aria-hidden="true">🎂 🎉 ✨</div><h2 id="nnBirthdayTitle">Happy Birthday!</h2><p>Wishing you a fantastic year of learning, creating, and doing what you love.</p><button class="nn-styled-button primary" onclick="nnCloseBirthday()" type="button">Let's celebrate! 🎈</button></div>
+</div>
   <div class="toast hidden" id="toast" role="status" aria-live="polite"></div>
+<script>
+window.nnSignedInUid = null;
+function nnUserKey(key) { return window.nnSignedInUid ? 'nn_user_' + window.nnSignedInUid + '_' + key : key; }
+</script>
   <script>
 /* state.js */
 // Keeps the same browser storage keys as the original Nexus Notes app.
@@ -850,7 +939,7 @@ async function sendTutorMessage(){
   try{
     const history=chat.messages.filter(m=>m.role==='user'||m.role==='assistant').slice(-16).map(m=>({role:m.role,content:m.text.slice(0,3000)}));
     const response=await fetch(tutorWorkerURL,{method:'POST',headers:{'Content-Type':'application/json','X-Tutor-Token':tutorAccessCode},
-      body:JSON.stringify({messages:history,subject:chat.subject,mode:chat.mode,notebook:tutorNotebookContext()}),signal:AbortSignal.timeout(45000)});
+      body:JSON.stringify({messages:nnGrade?[{role:'user',content:'Please explain this at '+nnGrade+' level, helping me learn with clear steps and hints.'},...history]:history,subject:chat.subject,mode:chat.mode,grade:nnGrade,notebook:tutorNotebookContext()}),signal:AbortSignal.timeout(45000)});
     const body=await response.json().catch(()=>({}));
     if(!response.ok)throw Error(body.error||('Tutor server returned error '+response.status));
     if(!body.reply||typeof body.reply!=='string')throw Error('The server did not return a tutor message');
@@ -1330,15 +1419,18 @@ focusTick();
 /* Nexus Notes v5 — Free project workspaces, notebook photos, drawings and accessibility.
    No passwords, servers, trackers or paid services. */
 const PROJECTS_KEY='nn_projects_index_v1';
+const nnProjectIndexKey=()=>nnUserKey(PROJECTS_KEY);
 const PROJECT_DATA_PREFIX='nn_project_data_v1_';
+const nnProjectDataKey=id=>nnUserKey(PROJECT_DATA_PREFIX+id);
 const DEFAULT_PROJECT_COLOR='#9278fa';
 const NOTEBOOK_COLORS=['#9278fa','#4cb5ee','#37bfa2','#f59f63','#ef739d','#d2ad63'];
 const PREFS_KEY='nn_preferences_v1';
+const nnPrefsKey=()=>nnUserKey(PREFS_KEY);
 const isHexColor=v=>typeof v==='string'&&/^#[0-9a-f]{6}$/i.test(v);
 const projectId=()=>('p'+(crypto.randomUUID?crypto.randomUUID().replace(/-/g,''):Date.now().toString(36)+Math.random().toString(36).slice(2)));
 let projects=[],activeProjectId=null,lastDrawingId=null,projectPickerIsStartup=true;
 let drawings=[];
-let preferences=loadLocal(PREFS_KEY,{size:'100',density:'comfortable',accent:DEFAULT_PROJECT_COLOR,contrast:false,reducedMotion:false,readableFont:false});
+let preferences=loadLocal(nnPrefsKey(),{size:'100',density:'comfortable',accent:DEFAULT_PROJECT_COLOR,contrast:false,reducedMotion:false,readableFont:false});
 let mediaDatabasePromise=null,mediaGridVersion=0,drawGalleryVersion=0;
 let noteMediaUrls=[],galleryUrls=[];
 let drawingInProgress=false,drawErase=false,drawingHistory=[],drawReady=false,drawPointer=null;
@@ -1358,12 +1450,12 @@ function cleanProjectData(source){
 }
 function projectSnapshot(){return cleanProjectData({notebooks,goals,tasks,events,quickNotes,subjectData,tutorChats,drawings});}
 function storeProjectIndex(){
- try{localStorage.setItem(PROJECTS_KEY,JSON.stringify(projects));return true;}
+ try{localStorage.setItem(nnProjectIndexKey(),JSON.stringify(projects));return true;}
  catch(err){notice('Unable to save project list. Browser storage may be full.');return false;}
 }
 function storeActiveProject(){
  if(!activeProjectId)return false;
- try{localStorage.setItem(PROJECT_DATA_PREFIX+activeProjectId,JSON.stringify(projectSnapshot()));return true;}
+ try{localStorage.setItem(nnProjectDataKey(activeProjectId),JSON.stringify(projectSnapshot()));return true;}
  catch(err){console.warn(err);notice('Could not save project. Download a backup and free up browser storage.');return false;}
 }
 // Project-specific storage replaces only the legacy global storage writes; old data is retained as a safety copy.
@@ -1376,14 +1468,14 @@ saveSubjectData=function(){storeActiveProject()};
 tutorStore=function(){storeActiveProject()};
 
 function initProjects(){
- const stored=loadLocal(PROJECTS_KEY,null);
+ const stored=loadLocal(nnProjectIndexKey(),null);
  if(Array.isArray(stored)&&stored.length){
    projects=stored.filter(p=>p&&typeof p.id==='string'&&typeof p.name==='string').map(p=>({id:p.id,name:p.name.slice(0,75),color:isHexColor(p.color)?p.color:DEFAULT_PROJECT_COLOR,createdAt:p.createdAt||Date.now()}));
  }
  if(!projects.length){
    const id=projectId();projects=[{id,name:'My first project',color:DEFAULT_PROJECT_COLOR,createdAt:Date.now()}];
    // Migrate existing non-Firebase Nexus Notes work into the starter project without deleting the original storage keys.
-   try{localStorage.setItem(PROJECT_DATA_PREFIX+id,JSON.stringify(projectSnapshot()))}catch(e){notice('Storage is full; back up your notes before adding projects')}
+   try{localStorage.setItem(nnProjectDataKey(id),JSON.stringify(projectSnapshot()))}catch(e){notice('Storage is full; back up your notes before adding projects')}
    storeProjectIndex();
  }
  renderProjectPicker();
@@ -1398,7 +1490,7 @@ function displayProjectName(){
 function renderProjectPicker(){
  const root=el('projectsGrid');if(!root)return;
  root.innerHTML=projects.map(p=>{
-   let saved=cleanProjectData(loadLocal(PROJECT_DATA_PREFIX+p.id,{}));
+   let saved=cleanProjectData(loadLocal(nnProjectDataKey(p.id),{}));
    return `<article class="project-card" style="--project-color:${p.color}">
     <button class="project-card-main" type="button" onclick="enterProject('${p.id}')"><span class="project-color-icon">✦</span><span><h3>${esc(p.name)}</h3><p>${saved.notebooks.length} notebooks · ${saved.tasks.length} task groups · ${saved.drawings.length} drawings</p></span></button>
     <div class="project-card-actions"><button onclick="enterProject('${p.id}')">↗ Open project</button><button onclick="renameProject('${p.id}')">✎ Rename</button><button onclick="setProjectColor('${p.id}')">🎨 Color</button><button onclick="deleteProject('${p.id}')">Delete</button></div></article>`;
@@ -1429,7 +1521,7 @@ function enterProject(id){
  const wasStartup=!activeProjectId;
  activeProjectId=id;
  if(drawReady){const c=el('drawCanvas');const ctx=c.getContext('2d');ctx.fillStyle='#fff';ctx.fillRect(0,0,c.width,c.height);drawingHistory=[];el('drawingTitle').value='My drawing';}
- const data=cleanProjectData(loadLocal(PROJECT_DATA_PREFIX+id,{}));
+ const data=cleanProjectData(loadLocal(nnProjectDataKey(id),{}));
  notebooks=data.notebooks;goals=data.goals;tasks=data.tasks;events=data.events;quickNotes=data.quickNotes;
  subjectData=data.subjectData;tutorChats=data.tutorChats;drawings=data.drawings;
  tasks.forEach(normalizeTask);
@@ -1449,14 +1541,14 @@ function createProject(){
  const color=isHexColor(el('newProjectColor').value)?el('newProjectColor').value:DEFAULT_PROJECT_COLOR;
  const id=projectId();projects.push({id,name:name.slice(0,75),color,createdAt:Date.now()});
  if(!storeProjectIndex()){projects.pop();return;}
- try{localStorage.setItem(PROJECT_DATA_PREFIX+id,JSON.stringify(cleanProjectData({})))}catch(e){projects.pop();storeProjectIndex();return notice('Not enough space to create a project')}
+ try{localStorage.setItem(nnProjectDataKey(id),JSON.stringify(cleanProjectData({})))}catch(e){projects.pop();storeProjectIndex();return notice('Not enough space to create a project')}
  el('newProjectName').value='';enterProject(id);notice('New project created: '+name);
 }
 function renameProject(id){const p=projects.find(p=>p.id===id);if(!p)return;const name=prompt('Rename this project:',p.name);if(name===null)return;if(!name.trim())return notice('Project name cannot be empty');p.name=name.trim().slice(0,75);storeProjectIndex();displayProjectName();renderProjectPicker();}
 function setProjectColor(id){const p=projects.find(p=>p.id===id);if(!p)return;const value=prompt('Project color (hex, e.g. #9278fa):',p.color);if(value===null)return;if(!isHexColor(value))return notice('Use a 6-digit hex color like #9278fa');p.color=value;storeProjectIndex();displayProjectName();renderProjectPicker()}
 function deleteProject(id){const p=projects.find(p=>p.id===id);if(!p)return;if(projects.length<=1)return notice('Keep at least one project.');if(!confirm(`Delete project "${p.name}" and all of its notes, tasks and drawings? This cannot be undone.`))return;
  const isActive=activeProjectId===id;
- projects=projects.filter(p=>p.id!==id);storeProjectIndex();localStorage.removeItem(PROJECT_DATA_PREFIX+id);
+ projects=projects.filter(p=>p.id!==id);storeProjectIndex();localStorage.removeItem(nnProjectDataKey(id));
  if(isActive){activeProjectId=null;enterProject(projects[0].id);el('welcomeOverlay').classList.add('hidden');openProjectPicker()}
  else renderProjectPicker();notice('Project deleted');
 }
@@ -1629,8 +1721,8 @@ function applyPreferences(){
  el('prefSize').value=String(size);el('prefDensity').value=density;el('prefAccent').value=accent;
  el('prefContrast').checked=!!preferences.contrast;el('prefMotion').checked=!!preferences.reducedMotion;el('prefReadable').checked=!!preferences.readableFont;
 }
-function updatePreference(name,value){preferences[name]=value;try{localStorage.setItem(PREFS_KEY,JSON.stringify(preferences))}catch(e){}applyPreferences()}
-function resetPreferences(){preferences={size:'100',density:'comfortable',accent:DEFAULT_PROJECT_COLOR,contrast:false,reducedMotion:false,readableFont:false};localStorage.setItem(PREFS_KEY,JSON.stringify(preferences));applyPreferences();notice('Appearance reset')}
+function updatePreference(name,value){preferences[name]=value;try{localStorage.setItem(nnPrefsKey(),JSON.stringify(preferences))}catch(e){}applyPreferences()}
+function resetPreferences(){preferences={size:'100',density:'comfortable',accent:DEFAULT_PROJECT_COLOR,contrast:false,reducedMotion:false,readableFont:false};localStorage.setItem(nnPrefsKey(),JSON.stringify(preferences));applyPreferences();notice('Appearance reset')}
 
 /* Full v5 backups: every project plus images, with legacy v3/v4 restore support. */
 function blobAsDataUrl(blob){return new Promise((resolve,reject)=>{const reader=new FileReader();reader.onload=()=>resolve(reader.result);reader.onerror=()=>reject(Error('Could not read image'));reader.readAsDataURL(blob)})}
@@ -1640,7 +1732,7 @@ async function downloadProjectBackup(){
   const media=await imageGetAll().catch(()=>[]);
   const imageRecords=[];
   for(const rec of media)imageRecords.push({id:rec.id,data:await blobAsDataUrl(rec.blob)});
-  const allProjectData=Object.fromEntries(projects.map(p=>[p.id,cleanProjectData(loadLocal(PROJECT_DATA_PREFIX+p.id,{}))]));
+  const allProjectData=Object.fromEntries(projects.map(p=>[p.id,cleanProjectData(loadLocal(nnProjectDataKey(p.id),{}))]));
   const backup={version:5,exportedAt:new Date().toISOString(),projects,projectData:allProjectData,images:imageRecords,profileName,preferences,theme:document.documentElement.dataset.theme};
   const url=URL.createObjectURL(new Blob([JSON.stringify(backup)],{type:'application/json'}));
   const a=document.createElement('a');a.href=url;a.download=`nexus-notes-all-projects-${todayKey()}.json`;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),3000);
@@ -1661,7 +1753,7 @@ async function importAllProjectBackup(event){
     for(const row of parsed.images||[]){if(typeof row.id==='string'&&typeof row.data==='string'&&/^data:image\//.test(row.data)){const blob=await (await fetch(row.data)).blob();await imagePut(blob,row.id)}}
     for(const p of imported){localStorage.setItem(PROJECT_DATA_PREFIX+p.id,JSON.stringify(cleanProjectData(parsed.projectData[p.id])))}
     projects=imported;storeProjectIndex();profileName=String(parsed.profileName||'');localStorage.setItem('nn_profile_name',profileName);
-    if(parsed.preferences&&typeof parsed.preferences==='object'){preferences=parsed.preferences;localStorage.setItem(PREFS_KEY,JSON.stringify(preferences));applyPreferences()}
+    if(parsed.preferences&&typeof parsed.preferences==='object'){preferences=parsed.preferences;localStorage.setItem(nnPrefsKey(),JSON.stringify(preferences));applyPreferences()}
     if(parsed.theme)setTheme(parsed.theme);
     activeProjectId=null;renderProjectPicker();openProjectPicker(true);updateGreeting();notice('Backup restored — choose a project');
   }else if(Array.isArray(parsed.notebooks)&&Array.isArray(parsed.goals)&&Array.isArray(parsed.tasks)&&Array.isArray(parsed.events)){
@@ -1684,6 +1776,265 @@ document.addEventListener('keydown',e=>{
 el('newProjectName').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();createProject()}});
 applyPreferences();
 initProjects();
+
+</script>
+<script>
+
+/* Nexus Notes account bridge. Firebase controls passwords, and Firestore rules restrict
+   reads/writes to users/{uid}/nexus/{document}. No passwords are saved in this page. */
+const nnConfig={apiKey:'AIzaSyAxUwYOUpRIHbsTVWKzb2X_FDIooUvyKoE',authDomain:'nexus-notes-117fe.firebaseapp.com',projectId:'nexus-notes-117fe',appId:'1:983035064361:web:1a91ec50c59c344398ac38'};
+let nnAuthMode='signin',nnAuthEmail='',nnBirthMonthDay='',nnGrade='',nnCloudUser=null,nnCloudReady=false,nnCloudBusy=false,nnCloudAgain=false;
+let nnCloudTimer=null,nnCloudAPI=null,nnSignupDraft=null,nnAuthSequence=0,nnSnapshotting=false;
+const nnMonthDay=(month,day)=>month&&day?month+'-'+day:'';
+const nnUserGet=(key)=>localStorage.getItem(nnUserKey(key));
+const nnUserSet=(key,value)=>localStorage.setItem(nnUserKey(key),value);
+function nnValidBirthday(m,d){const mo=Number(m),day=Number(d);return mo>=1&&mo<=12&&day>=1&&day<=new Date(2024,mo,0).getDate()}
+function nnIsBirthday(){const d=new Date();return nnBirthMonthDay===(String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'))}
+function nnShowBirthday(){if(nnIsBirthday()){el('welcomeOverlay')?.classList.add('hidden');el('nnBirthdayScreen').classList.remove('hidden');}}
+function nnCloseBirthday(){el('nnBirthdayScreen').classList.add('hidden');el('projectPickerOverlay').classList.remove('hidden')}
+function nnError(msg){el('nnAuthError').textContent=msg||''}
+function nnReadableError(error){switch(error?.code){case 'auth/email-already-in-use':return 'That email already has an account. Try signing in.';case 'auth/invalid-credential':case 'auth/wrong-password':return 'Email or password is incorrect.';case 'auth/invalid-email':return 'Enter a valid email address.';case 'auth/weak-password':return 'Choose a stronger password.';case 'auth/too-many-requests':return 'Too many attempts. Try again later.';case 'permission-denied':return 'Cloud permission denied. Check Firestore rules.';default:return String(error?.message||'Unable to connect. Please try again.').slice(0,160)}}
+function nnSetMode(mode){
+ nnAuthMode=mode;nnError('');const signup=mode==='signup';
+ el('nnAuthHeading').textContent=signup?'Create your account':'Welcome back';
+ el('nnAuthSubheading').textContent=signup?'Start with your email, grade and birthday.':'Sign in to your personal Nexus Notes projects.';
+ el('nnSignupFields').classList.toggle('hidden',!signup);el('nnSignupFields').style.display=signup?'grid':'none';
+ el('nnAuthSubmit').textContent=signup?'Create account':'Sign in';
+ el('nnAuthToggle').textContent=signup?'I already have an account':'Create an account';
+ el('nnAuthPassword').autocomplete=signup?'new-password':'current-password';
+}
+function nnOpenAccount(){if(nnCloudUser){showPage('settings');return;}nnSetMode('signin');el('nnAuthScreen').classList.remove('hidden')}
+function nnToggleAuthMode(){nnSetMode(nnAuthMode==='signin'?'signup':'signin')}
+function nnContinueGuestMode(){el('nnAuthScreen').classList.add('hidden');el('projectPickerOverlay').classList.remove('hidden');}
+function nnUpdateAccountPanel(message){
+ const logged=!!nnCloudUser;
+ el('nnAccountLabel').textContent=logged?nnCloudUser.email:'Sign in / Create account';
+ el('nnSettingsAccountState').textContent=logged?'Signed in: '+nnCloudUser.email:'Guest · work saved only on this device';
+ el('nnAccountPrimary').classList.toggle('hidden',logged);
+ el('nnSignOutButton').classList.toggle('hidden',!logged);
+ if(message)el('nnCloudStatus').textContent=message;
+}
+function nnReadProfile(){
+ nnGrade=nnUserGet('nn_grade')||'';window.nnCurrentGrade=nnGrade;nnBirthMonthDay=nnUserGet('nn_birth_md')||'';
+ el('nnSettingsGrade').value=nnGrade;
+ const [m,d]=nnBirthMonthDay.split('-');el('nnSettingsBirthMonth').value=m||'';el('nnSettingsBirthDay').value=d||'';
+}
+function nnSaveLearnerProfile(){
+ const month=el('nnSettingsBirthMonth').value,day=el('nnSettingsBirthDay').value;
+ if((month&&!day)||(!month&&day))return;
+ if(month&&day&&!nnValidBirthday(month,day)){notice('Please choose a valid date');return;}
+ nnGrade=el('nnSettingsGrade').value;window.nnCurrentGrade=nnGrade;nnBirthMonthDay=nnMonthDay(month,day);
+ nnUserSet('nn_grade',nnGrade);nnUserSet('nn_birth_md',nnBirthMonthDay);
+ nnMarkDirty();notice('Learner profile saved');
+}
+function nnGuestSnapshot(){
+ const before=nnSnapshotting;nnSnapshotting=true;
+ try{if(activeProjectId){flushWorkspaceEditors();storeActiveProject();}}finally{nnSnapshotting=before;}
+ const index=Array.isArray(projects)?structuredClone(projects):[];
+ const data={};for(const item of index){const value=loadLocal(nnProjectDataKey(item.id),null);if(value)data[item.id]=value;}
+ return {version:7,projects:index,data,profileName,grade:nnGrade,birthday:nnBirthMonthDay,preferences:structuredClone(preferences),theme:document.documentElement.dataset.theme||'dark',focusState:structuredClone(focusState)};
+}
+function nnRestoreAccountSnapshot(snapshot){
+ // Called after nnSignedInUid is switched, never writes into a guest's storage.
+ const incoming=snapshot&&typeof snapshot==='object'?snapshot:{};
+ const index=Array.isArray(incoming.projects)?incoming.projects.filter(p=>p&&typeof p.id==='string'&&typeof p.name==='string').slice(0,100):[];
+ const data=incoming.data&&typeof incoming.data==='object'?incoming.data:{};
+ if(!index.length&&Array.isArray(incoming.notebooks)){
+   const id=projectId();index.push({id,name:'My first project',color:'#9278fa',createdAt:Date.now()});
+   data[id]={notebooks:incoming.notebooks,goals:incoming.goals||[],tasks:incoming.tasks||[],events:incoming.events||[],quickNotes:incoming.quickNotes||[],subjectData:incoming.subjectData||{},tutorChats:incoming.tutorChats||[],drawings:[]};
+ }
+ for(const item of index){localStorage.setItem(nnProjectDataKey(item.id),JSON.stringify(cleanProjectData(data[item.id])))}
+ if(index.length)localStorage.setItem(nnProjectIndexKey(),JSON.stringify(index));
+ else localStorage.removeItem(nnProjectIndexKey());
+ nnUserSet('nn_grade',incoming.grade||'');nnUserSet('nn_birth_md',incoming.birthday||'');
+ nnUserSet('nn_profile_name',incoming.profileName||'');
+ if(incoming.preferences&&typeof incoming.preferences==='object')localStorage.setItem(nnPrefsKey(),JSON.stringify(incoming.preferences));
+ if(incoming.focusState&&typeof incoming.focusState==='object')nnUserSet('nn_focus_timer',JSON.stringify(incoming.focusState));
+ if(incoming.theme)nnUserSet('nn_theme',incoming.theme);
+}
+function nnSwitchScope(){
+ // Save and release the current workspace; never reuse another account's loaded arrays.
+ activeProjectId=null;projects=[];notebooks=[];goals=[];tasks=[];events=[];quickNotes=[];subjectData={};tutorChats=[];drawings=[];
+ currentNotebook=null;currentTask=null;currentQuickId=null;
+ profileName=nnUserGet('nn_profile_name')||'';
+ el('profileName').value=profileName;
+ preferences=loadLocal(nnPrefsKey(),{size:'100',density:'comfortable',accent:'#9278fa',contrast:false,reducedMotion:false,readableFont:false});
+ focusState=loadLocal(nnUserKey('nn_focus_timer'),{mode:'focus',duration:1500,remaining:1500,running:false,targetAt:0,completed:0});
+ focusState.running=false;focusState.targetAt=0;
+ document.documentElement.dataset.theme=nnUserGet('nn_theme')==='light'?'light':'dark';
+ nnReadProfile();applyPreferences();renderAll();focusTick();
+ el('editor').classList.add('hidden');el('taskEditor').classList.add('hidden');el('quickNoteOverlay').classList.add('hidden');
+ initProjects();
+}
+function nnCloudStatus(message){nnUpdateAccountPanel(message)}
+function nnMarkDirty(){
+ if(nnSnapshotting||!nnCloudReady||!nnCloudUser||nnCloudUser.uid!==window.nnSignedInUid)return;
+ localStorage.setItem('nn_cloud_pending_'+nnCloudUser.uid,String(Date.now()));
+ if(nnCloudBusy)nnCloudAgain=true;
+ clearTimeout(nnCloudTimer);nnCloudTimer=setTimeout(()=>{void nnSaveCloud()},2600);
+}
+const nnOldStoreProject=storeActiveProject;
+storeActiveProject=function(){const ok=nnOldStoreProject();if(ok)nnMarkDirty();return ok};
+const nnOldStoreIndex=storeProjectIndex;
+storeProjectIndex=function(){const ok=nnOldStoreIndex();if(ok)nnMarkDirty();return ok};
+saveFocusState=function(){try{nnUserSet('nn_focus_timer',JSON.stringify(focusState));nnMarkDirty();}catch(e){console.warn('Could not save timer',e)}};
+const nnOldSetTheme=setTheme;
+setTheme=function(theme){nnOldSetTheme(theme);nnUserSet('nn_theme',theme);nnMarkDirty()};
+const nnOldSaveProfile=saveProfile;
+saveProfile=function(){nnOldSaveProfile();nnUserSet('nn_profile_name',profileName);nnMarkDirty()};
+const nnOldUpdatePreference=updatePreference;
+updatePreference=function(name,value){nnOldUpdatePreference(name,value);nnMarkDirty()};
+const nnOldResetPreference=resetPreferences;
+resetPreferences=function(){nnOldResetPreference();nnMarkDirty()};
+async function nnSubmitAuth(event){
+ event.preventDefault();if(!nnCloudAPI){nnError('Still connecting to Firebase. Please try again.');return;}
+ const email=el('nnAuthEmail').value.trim(),password=el('nnAuthPassword').value;
+ if(password.length<6){nnError('Password must contain at least 6 characters.');return;}
+ const signup=nnAuthMode==='signup';
+ let draft=null;
+ if(signup){
+   const grade=el('nnSignupGrade').value,month=el('nnSignupBirthMonth').value,day=el('nnSignupBirthDay').value;
+   if(!grade||!nnValidBirthday(month,day)){nnError('Choose your grade and birthday.');return;}
+   draft={grade,birthday:nnMonthDay(month,day),importGuest:el('nnImportGuest').checked?nnGuestSnapshot():null};
+ }
+ el('nnAuthSubmit').disabled=true;nnError('');
+ try{nnSignupDraft=draft;await (signup?nnCloudAPI.create(email,password):nnCloudAPI.login(email,password));}
+ catch(e){nnSignupDraft=null;nnError(nnReadableError(e));}
+ finally{el('nnAuthSubmit').disabled=false;}
+}
+async function nnForgotPassword(){
+ const email=el('nnAuthEmail').value.trim();if(!email){nnError('Enter your email first.');return;}
+ if(!nnCloudAPI){nnError('Firebase is not connected yet.');return;}
+ try{await nnCloudAPI.reset(email);nnError('If an account exists, a reset email will arrive.');}
+ catch(e){nnError(nnReadableError(e))}
+}
+async function nnRequestSignOut(){
+ if(!nnCloudAPI)return;
+ if(activeProjectId){flushWorkspaceEditors();storeActiveProject();}
+ if(nnCloudReady)await nnSaveCloud();
+ try{await nnCloudAPI.logout()}catch(e){notice(nnReadableError(e))}
+}
+function nnAllImageIds(bundle){
+ const ids=new Set();for(const p of bundle.projects||[]){const d=bundle.data?.[p.id]||{};
+   for(const dr of d.drawings||[])if(typeof dr.id==='string')ids.add(dr.id);
+   for(const book of d.notebooks||[])for(const list of Object.values(book.media||{}))for(const ref of Array.isArray(list)?list:[])if(typeof ref.id==='string')ids.add(ref.id);
+ }return [...ids].filter(id=>/^p[a-z0-9]{8,70}$/i.test(id));
+}
+function nnCloudFromLocal(){return nnGuestSnapshot()}
+nnReadProfile();nnUpdateAccountPanel('Guest mode is ready. Sign in to enable private cloud saving.');
+// Show the sign-in choice without changing existing projects or guest notes.
+if(!sessionStorage.getItem('nn_guest_chosen'))nnOpenAccount();
+const nnOldGuestMode=nnContinueGuestMode;
+nnContinueGuestMode=function(){sessionStorage.setItem('nn_guest_chosen','1');nnOldGuestMode()};
+
+</script>
+<script type="module">
+
+// Firebase Auth and Cloud Firestore. Credentials are handled by Firebase only.
+try{
+ const [{initializeApp},{getAuth,createUserWithEmailAndPassword,signInWithEmailAndPassword,signOut,sendPasswordResetEmail,onAuthStateChanged},{getFirestore,doc,getDoc,setDoc}]=await Promise.all([
+   import('https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js'),
+   import('https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js'),
+   import('https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js')
+ ]);
+ const app=initializeApp(nnConfig),auth=getAuth(app),db=getFirestore(app);
+ nnCloudAPI={create:(email,password)=>createUserWithEmailAndPassword(auth,email,password),login:(email,password)=>signInWithEmailAndPassword(auth,email,password),logout:()=>signOut(auth),reset:email=>sendPasswordResetEmail(auth,email)};
+ el('nnAuthConfigNote').textContent='Email and password sign-in is connected through Firebase. No payment required for normal free-tier use.';
+ const docAt=(uid,key)=>doc(db,'users',uid,'nexus',key);
+ const split=(s)=>{const out=[];for(let i=0;i<s.length;i+=120000)out.push(s.slice(i,i+120000));return out};
+ const getRecord=async(uid,key)=>{
+   const m=await getDoc(docAt(uid,key+'_manifest'));
+   if(!m.exists())return null;
+   const n=m.data()?.parts;if(!Number.isInteger(n)||n<1||n>250)throw Error('Invalid cloud record.');
+   const parts=await Promise.all(Array.from({length:n},(_,i)=>getDoc(docAt(uid,key+'_p'+i))));
+   if(parts.some(x=>!x.exists()))throw Error('Incomplete cloud record.');
+   return {value:parts.map(x=>x.data().v).join(''),updated:Number(m.data()?.updated)||0};
+ };
+ const putRecord=async(uid,key,str)=>{
+   const chunks=split(str);if(chunks.length>250)throw Error('Free-tier cloud save limit reached. Please export a backup.');
+   for(let i=0;i<chunks.length;i++)await setDoc(docAt(uid,key+'_p'+i),{v:chunks[i]});
+   const updated=Date.now();await setDoc(docAt(uid,key+'_manifest'),{parts:chunks.length,updated,version:7});return updated;
+ };
+ const mediaDataURL=blob=>new Promise((resolve,reject)=>{const r=new FileReader();r.onload=()=>resolve(r.result);r.onerror=()=>reject(Error('Image read failed'));r.readAsDataURL(blob)});
+ async function uploadImages(uid,bundle){
+   let failures=0;
+   for(const id of nnAllImageIds(bundle)){
+     const track='nn_cloud_image_'+uid+'_'+id;
+     if(localStorage.getItem(track)==='uploaded')continue;
+     const blob=await imageGet(id).catch(()=>null);if(!blob){failures++;continue;}
+     if(blob.size>8*1024*1024){failures++;continue;}
+     try{await putRecord(uid,'image_'+id,await mediaDataURL(blob));localStorage.setItem(track,'uploaded')}
+     catch(err){console.warn('Image sync failed',id,err);failures++}
+   }
+   return failures;
+ }
+ async function restoreImages(uid,bundle){
+   let missing=0;for(const id of nnAllImageIds(bundle)){
+     if(await imageGet(id).catch(()=>null))continue;
+     try{const record=await getRecord(uid,'image_'+id);if(!record){missing++;continue;}
+       const response=await fetch(record.value);const blob=await response.blob();await imagePut(blob,id);
+     }catch(e){console.warn('Image restore failed',id,e);missing++}
+   }return missing;
+ }
+ window.nnSaveCloud=async()=>{
+   if(!nnCloudReady||!nnCloudUser||nnCloudUser.uid!==window.nnSignedInUid)return;
+   if(nnCloudBusy){nnCloudAgain=true;return;}
+   clearTimeout(nnCloudTimer);nnCloudBusy=true;
+   const uid=nnCloudUser.uid;const bundle=nnCloudFromLocal();const dirty=localStorage.getItem('nn_cloud_pending_'+uid);
+   nnCloudStatus('☁ Saving your projects…');
+   try{
+      const updated=await putRecord(uid,'workspace',JSON.stringify(bundle));
+      const imagesFailed=await uploadImages(uid,bundle);
+      if(nnCloudUser?.uid===uid){
+         if(localStorage.getItem('nn_cloud_pending_'+uid)===dirty){localStorage.removeItem('nn_cloud_pending_'+uid)}else nnCloudAgain=true;
+         nnCloudStatus(imagesFailed?'⚠ Projects synced, but '+imagesFailed+' image(s) could not sync. Keep a downloaded backup.':'✓ Cloud saved for '+nnCloudUser.email+' (including saved project images).');
+      }
+   }catch(error){nnCloudStatus('⚠ Cloud save failed: '+nnReadableError(error)+' Your device copy remains. Export a backup.');}
+   finally{nnCloudBusy=false;if(nnCloudAgain){nnCloudAgain=false;nnMarkDirty()}}
+ };
+ onAuthStateChanged(auth,async user=>{
+   const generation=++nnAuthSequence;clearTimeout(nnCloudTimer);nnCloudReady=false;
+   if(activeProjectId){flushWorkspaceEditors();storeActiveProject();}
+   nnCloudUser=user||null;
+   if(!user){
+     window.nnSignedInUid=null;nnSwitchScope();nnUpdateAccountPanel('Guest mode: projects saved only in this browser.');
+     el('nnAuthScreen').classList.remove('hidden');return;
+   }
+   const draft=nnSignupDraft;nnSignupDraft=null;
+   const uid=user.uid;
+   window.nnSignedInUid=uid;
+   try{
+      const remote=await getRecord(uid,'workspace');
+      if(generation!==nnAuthSequence)return;
+      let incoming=null;
+      if(remote){incoming=JSON.parse(remote.value);}
+      else if(draft){incoming=draft.importGuest||{version:7,projects:[],data:{},profileName:'',preferences:{}};incoming.grade=draft.grade;incoming.birthday=draft.birthday;}
+      else {
+        const cached=loadLocal(nnProjectIndexKey(),null);
+        if(Array.isArray(cached)&&cached.length){const data={};for(const pp of cached)data[pp.id]=loadLocal(nnProjectDataKey(pp.id),{});incoming={version:7,projects:cached,data,grade:nnUserGet('nn_grade')||'',birthday:nnUserGet('nn_birth_md')||'',preferences:loadLocal(nnPrefsKey(),{})};}
+        else incoming={version:7,projects:[],data:{}};
+      }
+      const dirty=Number(localStorage.getItem('nn_cloud_pending_'+uid)||0);
+      if(remote&&dirty>remote.updated){
+        const cached=loadLocal(nnProjectIndexKey(),null);
+        if(Array.isArray(cached)&&cached.length){const data={};for(const pp of cached)data[pp.id]=loadLocal(nnProjectDataKey(pp.id),{});incoming={...incoming,projects:cached,data,grade:nnUserGet('nn_grade')||incoming.grade,birthday:nnUserGet('nn_birth_md')||incoming.birthday,preferences:loadLocal(nnPrefsKey(),incoming.preferences||{})};}
+      }
+      nnRestoreAccountSnapshot(incoming);
+      nnSwitchScope();
+      if(generation!==nnAuthSequence)return;
+      const missing=await restoreImages(uid,incoming);
+      nnCloudReady=true;
+      el('nnAuthScreen').classList.add('hidden');el('nnAuthPassword').value='';
+      el('projectPickerOverlay').classList.remove('hidden');
+      nnCloudStatus(missing?'✓ Signed in. '+missing+' image(s) still need to sync. Keep a backup.':'✓ Signed in. Projects loaded for '+user.email+'.');
+      if(nnIsBirthday())nnShowBirthday();
+      if(!remote||dirty>remote.updated)nnMarkDirty();
+   }catch(e){console.error('Cloud load failed',e);nnCloudReady=false;nnSwitchScope();
+      nnCloudStatus('⚠ Cloud load error: '+nnReadableError(e)+'. No changes will be uploaded.');
+      el('nnAuthScreen').classList.add('hidden');
+   }
+ });
+}catch(error){console.error('Firebase initialization failed:',error);nnError('Could not load Firebase. Check your internet connection.');nnCloudStatus('Cloud service unavailable. Guest mode still works.');}
 
 </script>
 </body>
