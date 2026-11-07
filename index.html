@@ -2037,5 +2037,125 @@ try{
 }catch(error){console.error('Firebase initialization failed:',error);nnError('Could not load Firebase. Check your internet connection.');nnCloudStatus('Cloud service unavailable. Guest mode still works.');}
 
 </script>
+<!-- Nexus Notes: Quick Notes Workspace update (paste once, just before </body>) -->
+<style id="nnQuickWorkspaceStyles">
+.nn-quick-work-layout{display:grid;grid-template-columns:minmax(230px,290px) minmax(0,1fr);gap:20px;align-items:start}
+.nn-quick-work-list-panel,.nn-quick-work-editor,.nn-quick-work-empty{padding:24px}
+.nn-quick-work-list{display:flex;flex-direction:column;gap:8px;max-height:60vh;overflow-y:auto;margin-top:18px}
+.nn-quick-work-item{display:flex;flex-direction:column;gap:6px;width:100%;text-align:left;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--surface-2);color:var(--text);cursor:pointer}
+.nn-quick-work-item:hover,.nn-quick-work-item.active{border-color:var(--accent);background:var(--surface-3)}
+.nn-quick-work-item strong{font-size:13px;overflow-wrap:anywhere}
+.nn-quick-work-item small,.nn-quick-work-status,.nn-quick-work-muted{font-size:12px;color:var(--muted);line-height:1.5;overflow-wrap:anywhere}
+.nn-quick-work-editor label{display:block;font-size:12px;font-weight:700;color:var(--soft);margin:14px 0 7px}
+.nn-quick-work-editor input,.nn-quick-work-editor textarea{display:block;width:100%;padding:13px;background:var(--bg);color:var(--text);border:1px solid var(--line-strong);border-radius:11px;font:inherit}
+.nn-quick-work-editor textarea{min-height:290px;resize:vertical;line-height:1.6}
+.nn-quick-work-actions{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-top:16px}
+.nn-quick-work-status{display:block;margin-top:14px}
+@media(max-width:850px){.nn-quick-work-layout{grid-template-columns:1fr}.nn-quick-work-list{max-height:280px}}
+</style>
+<script>
+(function(){
+'use strict';
+if(document.getElementById('quicknotes'))return;
+const notebooksNav=document.querySelector('.nav-link[data-page="notebooks"]');
+const tasksPage=document.getElementById('tasks');
+if(!notebooksNav||!tasksPage||typeof showPage!=='function'||typeof saveQuickNotes!=='function'){
+ console.warn('Quick Notes add-on: Nexus Notes has not loaded its workspace components.');return;
+}
+notebooksNav.insertAdjacentHTML('afterend',`<button type="button" class="nav-link" data-page="quicknotes" onclick="showPage('quicknotes')"><svg><use href="#ic-book"/></svg><span>Quick Notes</span></button>`);
+tasksPage.insertAdjacentHTML('beforebegin',`
+<section id="quicknotes" class="view hidden">
+ <div class="page-heading"><div><div class="eyebrow">SAVE YOUR THOUGHTS</div><h1>Quick Notes <span class="heading-spark">✎</span></h1><p>View, edit, and save your notes within this project.</p></div>
+ <button type="button" class="button button-primary" onclick="nnQuickWorkNew()">＋ New quick note</button></div>
+ <div class="nn-quick-work-layout">
+  <div class="panel nn-quick-work-list-panel"><h3>Saved Quick Notes</h3><div id="nnQuickWorkList" class="nn-quick-work-list"></div></div>
+  <div class="panel nn-quick-work-editor hidden" id="nnQuickWorkEditor">
+   <label for="nnQuickWorkTitle">Note title</label><input id="nnQuickWorkTitle" maxlength="110" placeholder="Name your note" oninput="nnQuickWorkChanged()">
+   <label for="nnQuickWorkBody">Your note</label><textarea id="nnQuickWorkBody" placeholder="Write anything here. Your notes save automatically." oninput="nnQuickWorkChanged()"></textarea>
+   <div class="nn-quick-work-actions">
+    <button type="button" class="button button-primary" onclick="nnQuickWorkSave()">✓ Save note</button>
+    <button type="button" class="button button-secondary" onclick="nnQuickWorkNotebook()">↗ Save as notebook</button>
+    <button type="button" class="button button-danger" onclick="nnQuickWorkDelete()">Delete note</button>
+   </div><span class="nn-quick-work-status" id="nnQuickWorkStatus" aria-live="polite">Saved in this project</span>
+  </div>
+  <div class="panel nn-quick-work-empty" id="nnQuickWorkEmpty">No quick note is selected. Click <b>New quick note</b> to start.</div>
+ </div>
+</section>`);
+const get=id=>document.getElementById(id);
+let selectedId=null, saveTimer=null;
+const current=()=>quickNotes.find(note=>note.id===selectedId)||null;
+function list(){
+ const region=get('nnQuickWorkList');
+ region.innerHTML=quickNotes.length?quickNotes.map(n=>'<button type="button" class="nn-quick-work-item'+(n.id===selectedId?' active':'')+'" data-id="'+esc(n.id)+'"><strong>'+esc(n.title||'Untitled note')+'</strong><small>'+esc((n.body||'').trim().slice(0,90)||'Empty note')+'</small></button>').join(''):'<p class="nn-quick-work-muted">No saved notes in this project yet.</p>';
+ region.querySelectorAll('[data-id]').forEach(button=>button.addEventListener('click',()=>select(button.dataset.id)));
+}
+function render(){
+ if(!quickNotes.some(n=>n.id===selectedId))selectedId=quickNotes[0]?.id||null;
+ const note=current();
+ get('nnQuickWorkEditor').classList.toggle('hidden',!note);
+ get('nnQuickWorkEmpty').classList.toggle('hidden',!!note);
+ get('nnQuickWorkTitle').value=note?.title||'';
+ get('nnQuickWorkBody').value=note?.body||'';
+ get('nnQuickWorkStatus').textContent='✓ Saved in this project';list();
+}
+function save(silent=false){
+ const note=current();if(!note||activePage!=='quicknotes')return;
+ clearTimeout(saveTimer);
+ note.title=get('nnQuickWorkTitle').value.trim()||'Untitled note';
+ note.body=get('nnQuickWorkBody').value;note.updatedAt=Date.now();
+ saveQuickNotes();get('nnQuickWorkStatus').textContent='✓ Saved in this project';list();
+ if(!silent)notice('Quick note saved');
+}
+function changed(){
+ const note=current();if(!note)return;
+ note.title=get('nnQuickWorkTitle').value.trim()||'Untitled note';
+ note.body=get('nnQuickWorkBody').value;note.updatedAt=Date.now();
+ get('nnQuickWorkStatus').textContent='Saving…';list();
+ clearTimeout(saveTimer);saveTimer=setTimeout(()=>save(true),300);
+}
+function select(id){if(selectedId===id)return;save(true);selectedId=id;render()}
+function add(){
+ save(true);
+ const note={id:'q'+Date.now()+Math.random().toString(36).slice(2,7),title:'Untitled note',body:'',updatedAt:Date.now()};
+ quickNotes.unshift(note);selectedId=note.id;saveQuickNotes();render();
+ get('nnQuickWorkTitle').focus();get('nnQuickWorkTitle').select();
+}
+function remove(){
+ const note=current();if(!note||!confirm('Delete this Quick Note?'))return;
+ clearTimeout(saveTimer);quickNotes=quickNotes.filter(n=>n.id!==note.id);
+ if(currentQuickId===note.id)currentQuickId=null;
+ selectedId=quickNotes[0]?.id||null;saveQuickNotes();render();notice('Note deleted');
+}
+function notebook(){
+ save(true);const note=current();if(!note||!note.body.trim())return notice('Write something first');
+ notebooks.push({name:note.title,pages:[note.body,...Array(449).fill('')]});
+ saveAll();notice('Quick note saved as a notebook');showPage('notebooks');
+}
+window.nnQuickWorkNew=add;
+window.nnQuickWorkChanged=changed;
+window.nnQuickWorkSave=()=>save(false);
+window.nnQuickWorkDelete=remove;
+window.nnQuickWorkNotebook=notebook;
+pageNames.quicknotes='Quick Notes';
+const previousShowPage=showPage;
+showPage=function(id){
+ if(activePage==='quicknotes'&&id!=='quicknotes')save(true);
+ // Prior version also supplies the Drawing Studio extension.
+ previousShowPage(id);
+ if(id==='quicknotes')render();
+};
+const previousEnterProject=enterProject;
+enterProject=function(id){
+ if(activePage==='quicknotes')save(true);
+ selectedId=null;clearTimeout(saveTimer);previousEnterProject(id);
+};
+const previousOpenQuickNote=openQuickNote;
+openQuickNote=function(){if(activePage==='quicknotes')save(true);previousOpenQuickNote()};
+const previousCloseQuickNote=closeQuickNote;
+closeQuickNote=function(){previousCloseQuickNote();if(activePage==='quicknotes'){selectedId=currentQuickId;render()}};
+})();
+</script>
+<!-- End Nexus Notes Quick Notes Workspace update -->
+
 </body>
 </html>
